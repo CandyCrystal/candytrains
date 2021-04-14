@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="100px" height="45px" viewBox="0 0 100 45" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 51.3 (57544) - http://www.bohemiancoding.com/sketch -->
+    <title>Line/Monitor/F1</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Line/Monitor/F1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <rect id="Rectangle-285-Copy-12" fill="#767676" x="0" y="0" width="100" height="45"></rect>
+        <polygon id="1" fill="#FFFFFF" points="47.0234375 36 41.4765625 36 41.4765625 14.28125 36.0664062 16.3710938 36.0664062 11.7617188 46.4375 7.5234375 47.0234375 7.5234375"></polygon>
+        <polygon id="F" fill="#FFFFFF" points="25.953125 24.3984375 17.0273438 24.3984375 17.0273438 36 11.2851562 36 11.2851562 7.5625 27.0273438 7.5625 27.0273438 12.3476562 17.0273438 12.3476562 17.0273438 19.6328125 25.953125 19.6328125"></polygon>
+    </g>
+</svg>

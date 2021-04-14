@@ -1,0 +1,33 @@
+.copyright {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    color: white;
+    z-index: 5;
+    font-family: roboto;
+    padding: 5px;
+}
+
+body {
+    display: table-cell;
+    text-align: center;
+    vertical-align: middle;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    background-color: black;
+}
+
+.wrap2 {
+    height: 0;
+    position: relative;
+}
+
+.viewer {
+    border: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+}

@@ -1,0 +1,746 @@
+.image {
+    height: inherit;
+    width: inherit;
+    padding: unset;
+    vertical-align: middle;
+}
+
+html {
+    scrollbar-width: none;
+}
+
+body {
+    background-color: #000 !important;
+    margin: 0px;
+    border-collapse: collapse !important;
+    overflow-x: hidden;
+    cursor: auto;
+    color: white;
+    background-color: #000;
+    font-family: 'Roboto', sans-serif !important;
+}
+
+
+/* Platform Viewer */
+
+body.viewer {
+    background-color: #000;
+    margin: 0px;
+    padding: 0;
+}
+
+body::-webkit-scrollbar {
+    background-color: transparent;
+    width: 0vw;
+}
+
+
+/* platformNumber */
+
+.platformNum {
+    display: block;
+    height: 21.3vw;
+    width: 10.5vw;
+    border-collapse: collapse;
+    background-color: #020202;
+    margin: 0;
+    font-family: 'Roboto', sans-serif;
+}
+
+
+/* Platform Display */
+
+
+/* Train Preview */
+
+.wagon {
+    height: 2vw;
+}
+
+.BPA75 {
+    width: 2.866666666666667vw;
+    background-color: yellow;
+}
+
+.trainDisplay {
+    bottom: 2vw;
+    position: relative;
+    height: 2vw;
+    width: 100%;
+    /* background-color: red; */
+}
+
+.trainIcons {
+    position: absolute;
+    bottom: 2vw;
+    padding-left: 50%;
+}
+
+.wagonNumber {
+    color: black;
+    font-size: 1.5vw;
+    margin-top: 1vw;
+    margin-left: 0.1vw;
+}
+
+.trainIconClosed {
+    position: absolute;
+    bottom: -0.8vw;
+    width: inherit;
+    text-align: center;
+    font-size: 1.3vw;
+}
+
+.trainIcon {
+    background-color: black;
+    border: 0.2vw solid white;
+    vertical-align: middle;
+    border-radius: 2vw;
+    width: 2vw;
+    height: 2vw;
+    top: -1vw;
+    text-align: center;
+    margin: 0 auto;
+    font-size: 1.5vw;
+    float: left;
+    z-index: 1;
+    margin-left: 0.05vw;
+    margin-right: 0.05vw;
+}
+
+.trainIcons>i {
+    display: block;
+    margin: 0.25vw;
+}
+
+.train {
+    position: absolute;
+    height: 5vw;
+}
+
+.trainDisplayFrontLeft {
+    transform: scaleX(-1);
+    width: 3vw;
+    margin-top: 1.45vw;
+    height: 3.4vw;
+    float: left;
+    margin-right: -0.3vw;
+    margin-left: -0.5vw;
+    border-bottom-right-radius: 1vw;
+    border-top-right-radius: 1vw;
+    position: relative;
+    z-index: 1;
+    -webkit-clip-path: polygon(58% 52%, 66% 66%, 67% 80%, 59% 92%, 48% 98%, 33% 100%, 0 100%, 0% 70%, 0% 35%, 0 0);
+    clip-path: polygon(58% 52%, 66% 66%, 67% 80%, 59% 92%, 48% 98%, 33% 100%, 0 100%, 0% 70%, 0% 35%, 0 0);
+}
+
+.trainDisplayFrontRight {
+    width: 3vw;
+    margin-top: 1.45vw;
+    height: 3.4vw;
+    float: left;
+    margin-left: -0.1vw;
+    margin-right: -0.5vw;
+    border-bottom-right-radius: 1vw;
+    border-top-right-radius: 1vw;
+    position: relative;
+    z-index: 1;
+    -webkit-clip-path: polygon(58% 52%, 66% 66%, 67% 80%, 59% 92%, 48% 98%, 33% 100%, 0 100%, 0% 70%, 0% 35%, 0 0);
+    clip-path: polygon(58% 52%, 66% 66%, 67% 80%, 59% 92%, 48% 98%, 33% 100%, 0 100%, 0% 70%, 0% 35%, 0 0);
+}
+
+.trainDisplayWagon {
+    bottom: 0;
+    margin-top: 1.45vw;
+    height: 3.4vw;
+    float: left;
+    position: relative;
+    margin-left: 0.2vw;
+}
+
+.comfort {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 900;
+}
+
+.trainDisplayWagon.frontRight {
+    border-radius: 0.2vw;
+    border-bottom-right-radius: 0;
+    border-top-right-radius: 0.1vw;
+}
+
+.trainDisplayWagon.backLeft {
+    border-radius: 0.4vw;
+    border-bottom-right-radius: 0.2vw;
+    border-top-right-radius: 0.2vw;
+}
+
+.trainDisplayWagon.frontLeft {
+    border-radius: 0.2vw;
+    border-bottom-left-radius: 0;
+    border-top-left-radius: 0.1vw;
+}
+
+.trainDisplayWagon.backRight {
+    border-radius: 0.4vw;
+    border-bottom-left-radius: 0.2vw;
+    border-top-left-radius: 0.2vw;
+}
+
+.trainDisplayWagon.middle {
+    border-radius: 0.2vw;
+}
+
+.unknownOccupancy {
+    background: linear-gradient(180deg, rgba(255, 255, 255, 1) 0%, rgba(235, 225, 225, 1) 48.8%, rgba(218, 213, 213, 1) 58.21%, rgba(168, 167, 168, 1) 90%, #333 90%, #333 100%);
+}
+
+.closed {
+    background: linear-gradient(180deg, #626262 0%, #4e4e4e 100%);
+}
+
+.lowOccupancy {
+    background: linear-gradient(180deg, rgba(255, 255, 255, 1) 0%, rgba(235, 225, 225, 1) 48.8%, rgba(218, 213, 213, 1) 58.21%, rgba(168, 167, 168, 1) 90%, #138d5a 90%, #138d5a 100%);
+}
+
+.mediumOccupancy {
+    background: linear-gradient(180deg, rgba(255, 255, 255, 1) 0%, rgba(235, 225, 225, 1) 48.8%, rgba(218, 213, 213, 1) 58.21%, rgba(168, 167, 168, 1) 90%, #eecb2f 90%, #eecb2f 100%);
+}
+
+.highOccupancy {
+    background: linear-gradient(180deg, rgba(255, 255, 255, 1) 0%, rgba(235, 225, 225, 1) 48.8%, rgba(218, 213, 213, 1) 58.21%, rgba(168, 167, 168, 1) 90%, #f93f3a 90%, #f93f3a 100%);
+}
+
+.sectorLetterRow {
+    color: white;
+    display: none;
+    position: absolute;
+    width: 100%;
+    height: 1.32vw;
+    bottom: 0;
+    left: 0;
+    margin-bottom: 2vw;
+    background-color: rgb(59, 59, 59);
+}
+
+.positionElement {
+    position: absolute;
+    height: 2vw;
+    width: 1vw;
+    background-color: red;
+}
+
+div.sectorLetter {
+    /* position: absolute; */
+    width: 12.5% !important;
+    height: 1.32vw;
+    float: left;
+    background-color: rgb(59, 59, 59);
+    text-align: center;
+    font-size: 1vw;
+}
+
+.trainDisplayTrain {
+    width: 100vw;
+    position: relative;
+    bottom: 0;
+    height: 5vw;
+    display: none;
+}
+
+
+/* First Departure */
+
+
+/* 
+.localTime {
+    position: relative;
+    top: 0;
+    right: 1vw;
+    font-size: 1vw;
+} */
+
+
+/* .destination {
+    display: none;
+    position: absolute;
+    top: 4.2vw;
+    left: 0.4vw;
+    font-size: 4vw;
+} */
+
+
+/* .departureTime {
+    position: absolute;
+    top: 10.5vw;
+    right: 1vw;
+    font-size: 10vw;
+    font-weight: 400;
+} */
+
+
+/* .departureRemarks {
+    position: absolute;
+    top: 23.6vw;
+    left: 1.2vw;
+    font-size: 4vw;
+    width: 70vw;
+} */
+
+
+/* No boarding */
+
+
+/* .departureNoBoardingText {
+    color: white;
+    display: none;
+    position: absolute;
+    top: 10.5vw;
+    left: 2vw;
+    font-weight: 300;
+    font-size: 10vw;
+}
+
+.departureNoBoardingText>b {
+    font-weight: 500;
+}
+
+.departureNoBoardingLine {
+    display: none;
+    position: absolute;
+    height: 6vw;
+    top: 19vw;
+    left: 2vw;
+    font-size: 10vw;
+}
+
+.departureNoBoardingDestination {
+    color: white;
+    display: none;
+    position: absolute;
+    top: 21.6vw;
+    left: 16vw;
+    font-size: 7vw;
+}
+
+.departureNoBoardingTime {
+    color: white;
+    display: none;
+    position: absolute;
+    top: 21.6vw;
+    right: 1vw;
+    font-size: 7vw;
+}
+
+.departureNoBoardingNewTime {
+    color: #ffd300;
+    display: none;
+    position: absolute;
+    top: 30.6vw;
+    right: 1vw;
+    font-size: 7vw;
+}
+
+.departureNoBoardingNewTimeText {
+    color: #ffd300;
+    display: none;
+    position: absolute;
+    top: 39vw;
+    right: 1vw;
+    font-size: 3.4vw;
+}
+
+.departureNoBoardingDontBoard {
+    color: white;
+    position: absolute;
+    display: none;
+    top: 32vw;
+    left: 2vw;
+    font-size: 4vw;
+    font-weight: 300;
+}
+
+.departureNoBoardingDontBoard>b {
+    font-weight: 500;
+} */
+
+
+/* Cancelled */
+
+
+/* .cancelledText {
+    color: #ffd300;
+    position: absolute;
+    display: none;
+    top: 22vw;
+    left: 1.4vw;
+    font-size: 7vw;
+} */
+
+
+/* .newTimeText {
+    color: #ffd300;
+    position: absolute;
+    display: none;
+    right: 1vw;
+    top: 30.5vw;
+    font-size: 3vw;
+    font-weight: 200;
+} */
+
+
+/* .newTimeText>b {
+    font-weight: 400;
+} */
+
+
+/* .newTime {
+    color: #ffd300;
+    position: absolute;
+    display: none;
+    top: 21.6vw;
+    right: 1vw;
+    font-size: 8vw;
+} */
+
+
+/* Second Departure */
+
+
+/* .secondDeparture>.line {
+    position: absolute;
+    color: white;
+    display: none;
+    height: 2.8vw;
+    top: 51.8vw;
+    padding-right: 1vw;
+    left: 12.8vw;
+}
+
+.secondDeparture>.time {
+    position: absolute;
+    color: white;
+    display: none;
+    height: 2vw;
+    font-size: 3.25vw;
+    top: 51.2vw;
+    left: 2vw;
+}
+
+.secondDeparture>.destination {
+    position: absolute;
+    color: white;
+    display: none;
+    height: 2vw;
+    top: 51.2vw;
+    left: 20.2vw;
+    font-size: 3.25vw;
+}
+
+.secondDeparture>.newTime {
+    position: absolute;
+    color: #ffd300;
+    display: none;
+    font-size: 3.25vw;
+    top: 51.2vw;
+    right: 1vw;
+}
+
+.secondDeparture>.newTimeText {
+    position: absolute;
+    color: #ffd300;
+    display: none;
+    top: 51.8vw;
+    right: 11vw;
+    font-size: 2.5vw;
+} */
+
+.warningYellow {
+    color: #ffd300;
+}
+
+
+/* New stuff */
+
+.platformDisplayTable {
+    border: none;
+    border-collapse: collapse;
+}
+
+.platformDisplay {
+    position: relative;
+    font-size: 5vw;
+    padding: 0;
+    height: 20vw;
+    width: 37.33vw;
+    border: 0.1vw solid #222222;
+    /* background-color: #f93f3a !important; */
+}
+
+.currentTime {
+    position: absolute;
+    top: 0;
+    right: 0.4vw;
+    /* height: 100%; */
+    padding-top: 0;
+    text-align: right;
+    font-size: 1.8vw;
+}
+
+body {
+    padding: 0;
+}
+
+tr {
+    padding: 0;
+}
+
+.platformNumber {
+    position: relative;
+    display: block;
+    height: 20vw;
+    width: 10vw;
+    font-size: 7vw;
+    border-collapse: collapse;
+    background-color: #020202;
+    /* background-color: #138d5a; */
+    margin: 0;
+    padding: 1vw;
+    font-family: 'Roboto', sans-serif;
+    border: 0.1vw solid #222222;
+}
+
+.platformNumber.large {
+    width: 20vw;
+    font-size: 14vw;
+    height: 42.6vw;
+}
+
+.platformNum p {
+    padding: 0;
+    margin: 0;
+}
+
+.platformNumLine1 {
+    margin-top: 2vw;
+    text-align: center;
+    font-size: 40%;
+    margin-bottom: 0;
+    color: white;
+}
+
+.platformNumLine2 {
+    margin-top: 0vw;
+    margin-bottom: 0vw;
+    text-align: center;
+    font-size: 40%;
+    color: #ffd300;
+}
+
+.platformNumLine3 {
+    margin-top: 0vw;
+    text-align: center;
+    font-size: 125%;
+    color: white;
+}
+
+.departureImages {
+    display: none;
+    position: absolute;
+    top: 0.68vw;
+    left: 0.44vw;
+    height: 3.16vw;
+}
+
+.departureImage {
+    display: block;
+    height: inherit;
+    float: left;
+    padding-right: 1vw;
+}
+
+.departureTime {
+    position: absolute;
+    display: none;
+    top: 4.2vw;
+    right: 0.4vw;
+    font-size: 4vw;
+    font-weight: 400;
+}
+
+.departureRemarks {
+    position: absolute;
+    display: none;
+    top: 9.44vw;
+    left: 0.48vw;
+    font-size: 1.6vw;
+    width: 28vw;
+}
+
+.departureDestination {
+    display: none;
+    position: absolute;
+    top: 4.2vw;
+    left: 0.4vw;
+    font-size: 4vw;
+}
+
+.departureNewTimeText {
+    color: #ffd300;
+    position: absolute;
+    display: none;
+    right: 0.4vw;
+    top: 12.2vw;
+    font-size: 1.2vw;
+    font-weight: 200;
+}
+
+.departureNewTimeText>b {
+    font-weight: 400;
+}
+
+.departureNewTime {
+    color: #ffd300;
+    position: absolute;
+    display: none;
+    top: 8.64vw;
+    right: 0.4vw;
+    font-size: 3.2vw;
+}
+
+.line_B {
+    background-color: red;
+    position: absolute;
+    color: white;
+    display: none;
+    height: 1.12vw;
+    top: 20.72vw;
+    margin-right: 0.4vw;
+    left: 5.12vw;
+}
+
+.time_B {
+    position: absolute;
+    color: white;
+    display: none;
+    height: 0.8vw;
+    font-size: 1.3vw;
+    top: 20.48vw;
+    left: 0.8vw;
+}
+
+.destination_B {
+    position: absolute;
+    color: white;
+    display: none;
+    height: 0.8vw;
+    top: 20.48vw;
+    left: 8.08vw;
+    font-size: 1.3vw;
+}
+
+.newTime_B {
+    position: absolute;
+    color: #ffd300;
+    display: none;
+    font-size: 1.3vw;
+    top: 20.48vw;
+    right: 0.4vw;
+}
+
+.newTimeText_B {
+    position: absolute;
+    color: #ffd300;
+    display: none;
+    top: 20.72vw;
+    right: 4.4vw;
+    font-size: 1vw;
+}
+
+
+/* Cancelled */
+
+.cancelledText {
+    color: #ffd300;
+    position: absolute;
+    display: none;
+    top: 8.8vw;
+    left: 0.56vw;
+    font-size: 2.8vw;
+}
+
+
+/* No boarding */
+
+.departureNoBoardingText {
+    color: white;
+    display: none;
+    position: absolute;
+    top: 4.2vw;
+    left: 0.8vw;
+    font-weight: 300;
+    font-size: 4vw;
+}
+
+.departureNoBoardingText>b {
+    font-weight: 500;
+}
+
+.departureNoBoardingLine {
+    display: none;
+    position: absolute;
+    height: 2.4vw;
+    top: 7.6vw;
+    left: 0.8vw;
+    font-size: 4vw;
+}
+
+.departureNoBoardingOrigin {
+    color: white;
+    display: none;
+    position: absolute;
+    top: 8.64vw;
+    left: 6.4vw;
+    font-size: 2.8vw;
+}
+
+.departureNoBoardingTime {
+    color: white;
+    display: none;
+    position: absolute;
+    top: 8.64vw;
+    right: 0.4vw;
+    font-size: 2.8vw;
+}
+
+.departureNoBoardingNewTime {
+    color: #ffd300;
+    display: none;
+    position: absolute;
+    top: 12.24vw;
+    right: 0.4vw;
+    font-size: 2.8vw;
+}
+
+.departureNoBoardingNewTimeText {
+    color: #ffd300;
+    display: none;
+    position: absolute;
+    top: 15.6vw;
+    right: 0.4vw;
+    font-size: 1.36vw;
+}
+
+.departureNoBoardingDontBoard {
+    color: white;
+    position: absolute;
+    display: none;
+    top: 12.8vw;
+    left: 0.8vw;
+    font-size: 1.6vw;
+    font-weight: 300;
+}
+
+.departureNoBoardingDontBoard>b {
+    font-weight: 500;
+}

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>List of stations</title>
+    <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
+    <script src="./stations.js"></script>
+</head>
+
+<body style="background-color: #000; color: #fff;">
+    <table id="stationTable">
+        <tr>
+            <th>Code</th>
+            <th>Name</th>
+            <th>Number of platforms</th>
+            <th>Latitude</th>
+            <th>Longitude</th>
+        </tr>
+    </table>
+</body>
+
+<script>
+    for (const key in listStations) {
+        var table = document.getElementById("stationTable")
+        var tableRow = document.createElement("tr")
+        var code = listStations[key].code
+        var stationName = listStations[key].name
+        var platforms = listStations[key].platforms
+        var lat = listStations[key].lat
+        var long = listStations[key].long
+        var codeTd = document.createElement("td")
+        codeTd.innerHTML = "<a href='../norwegianPlatformViewer.php?station=" + code + "'>" + code + "</a>"
+        tableRow.appendChild(codeTd)
+        var nameTd = document.createElement("td")
+        var nameNode = document.createTextNode(stationName)
+        nameTd.appendChild(nameNode)
+        tableRow.appendChild(nameTd)
+        var platformsTd = document.createElement("td")
+        var platformsNode = document.createTextNode(platforms)
+        platformsTd.appendChild(platformsNode)
+        tableRow.appendChild(platformsTd)
+        var latTd = document.createElement("td")
+        var latNode = document.createTextNode(lat)
+        latTd.appendChild(latNode)
+        tableRow.appendChild(latTd)
+        var longTd = document.createElement("td")
+        var longNode = document.createTextNode(long)
+        longTd.appendChild(longNode)
+        tableRow.appendChild(longTd)
+        table.appendChild(tableRow)
+    }
+
+</script>
+
+</html>

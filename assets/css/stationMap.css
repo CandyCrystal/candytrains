@@ -1,0 +1,53 @@
+body {
+    font-family: Roboto;
+    margin: 0;
+}
+
+h1 {
+    font-family: Roboto;
+}
+
+h4 {
+    color: white;
+}
+
+.map {
+    width: 100vw;
+    height: 100vh
+}
+
+.stationMarker.open {
+    background-color: #f00;
+    border: 5px solid #f00;
+    border-radius: 100%;
+    position: relative;
+    margin-top: -2.5px;
+    margin-left: -2.5px;
+}
+
+.stationMarker.closed {
+    background-color: #a00;
+    border: 5px solid #a00;
+    border-radius: 100%
+}
+
+.options {
+    position: absolute;
+    display: block;
+    top: 0;
+    right: 0;
+    margin: 5px;
+    padding: 5px;
+    background-color: black;
+    z-index: 12134;
+    text-align: center;
+    border-radius: 5px;
+}
+
+a.toggle {
+    color: white !important;
+}
+
+a {
+    font-family: Roboto;
+}

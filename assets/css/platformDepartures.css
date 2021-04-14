@@ -1,0 +1,154 @@
+table {
+    font-size: 30px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    margin: auto;
+    margin-top: 5px;
+    border-color: transparent !important;
+}
+
+.bigText {
+    font-size: 50px;
+}
+
+.columnLogo {
+    font-size: 30px;
+    width: fit-content;
+    padding-left: 10px;
+    padding-right: 0;
+    position: relative;
+}
+.columnImage {
+    display: block;
+    height: 40px;
+    /* width: 100%; */
+    /* position: absolute; */
+    float: left;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+    padding-right: 10px;
+}
+
+.smallImage {
+    height: 25px;
+
+}
+
+.columnDepartureTime {
+    width: 120px;
+}
+
+th {
+    text-align: center;
+    padding: 10px !important;
+
+}
+
+.textRightAlign {
+    text-align: right;
+}
+
+.gleis {
+    width: 60px;
+    height: 60px;
+}
+
+.swissRow {
+    height: 30px;
+}
+
+.swissPlatformDisplay {
+    color: white;
+    background-color: #213266;
+    min-width: 500px;
+    border-color: #152362 !important;
+    height: 130px;
+}
+
+.gleisElementFrame {
+    border: 1px solid white;
+    border-radius: 5px;
+}
+
+.gleisElementSmallText {
+    font-size: 12px;
+}
+.gleisElementBigText {
+    font-size: 35px;
+    text-align: center;
+}
+
+td {
+    /* border: 1px solid white; */
+    background-color: none !important;
+    font-family: 'Roboto', sans-serif !important;
+    /* padding: 10px !important; */
+    font-weight: 500;
+}
+
+tr:nth-child(odd) {
+    background-color: transparent !important;
+}
+
+tr:nth-child(even) {
+    background-color: transparent !important;
+}
+
+.norwegianClock {
+    height: 20px;;
+}
+
+.norwegianPlatformDisplay {
+    color: white;
+    min-width: 550px;
+    background-color: #000;
+    border: 2px solid grey !important;
+}
+
+.norwegianNextDepartureTime {
+    width: 60px;
+}
+
+.norwegianPlatformText {
+    font-size: 20px;
+}
+
+.norwegianPlatformNumber {
+    font-size: 50px;
+}
+
+.norwegianDepartureTime {
+    width: 120px;
+}
+
+.norwegianNextDepartureLine {
+    width: 50px;
+}
+
+.norwegianPlatformNumberFrame {
+    background-color: black;
+    text-align: center;
+    border: 2px solid grey;
+    width: 60px;
+    height: 180px;
+}
+
+.norwegianRemarks {
+    height: 50px;
+}
+
+.departureContent {
+    font-size: 30px !important;
+}
+
+.columnPlatform {
+    text-align: center !important;
+}
+
+.columnRemark {
+    /* width: 20vw; */
+    font-size: 15px !important;
+}

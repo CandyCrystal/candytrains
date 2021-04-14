@@ -1,0 +1,307 @@
+﻿<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <title>Subway Map</title>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-1.9.0.min.js"></script>
+    <script type="text/javascript" src="subway.js"></script>
+    <style type="text/css">
+        body {
+            font-family: Verdana;
+            font-size: 8pt;
+            background-color: #222;
+            color: white !important;
+        }
+
+        /* The main DIV for the map */
+        .subway-map {
+            margin: 0;
+            width: 100vw;
+            height: 80vh;
+            background-color: transparent;
+        }
+
+        /* Text labels */
+        .text {
+            text-decoration: none;
+            color: #ddd;
+        }
+
+        #legend {
+            position: absolute;
+            top: 0;
+            width: 300px;
+            height: 400px;
+        }
+
+        #legend div {
+            height: 25px;
+        }
+
+        #legend span {
+            margin: 5px 5px 5px 0;
+        }
+
+        .subway-map span {
+            margin: 5px 5px 5px 0;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="subway-map" data-columns="120" data-rows="100" data-cellSize="40" data-legendId="legend"
+        data-textClass="text" data-gridNumbers="true" data-grid="false" data-lineWidth="8">
+        <ul data-color="#767676 " data-label="F1"></ul>
+        <ul data-color="#767676" data-label="F2"></ul>
+        <ul data-color="#db3680" data-label="L1 Spikkestad-Lillestrøm">
+            <li data-coords="66,23" data-dir="N" data-labelPos="W">Spikkestad</li>
+            <li data-coords="66,22" data-dir="N" data-labelPos="W">Røyken</li>
+            <li data-coords="66,21" data-dir="N" data-labelPos="W">Heggedal</li>
+            <li data-coords="66,20" data-dir="N" data-labelPos="W">Gullhella</li>
+            <li data-coords="66,19" data-dir="N" data-labelPos="W">Bondivann</li>
+            <li data-coords="67,18" data-dir="N" data-labelPos="S"></li>
+            <li data-coords="67,18" data-labelPos="S" data-marker="@interchange" data-markerinfo="v7">Asker</li>
+            <li data-coords="68,18">Høn</li>
+            <li data-coords="69,18">Vakås</li>
+            <li data-coords="70.5,18">Hvalstad</li>
+            <li data-coords="72,18">Billingstad</li>
+            <li data-coords="74,18">Slependen</li>
+            <li data-coords="75.5,18"></li>
+            <li data-coords="75.5,18" data-labelPos="S" data-marker="@interchange" data-markerinfo="v6">Sandvika</li>
+            <li data-coords="77.5,18">Blommenholm</li>
+            <li data-coords="79,18">Høvik</li>
+            <li data-coords="89,18">Bryn</li>
+            <li data-coords="90,18">Alna</li>
+            <li data-coords="91,18">Nyland</li>
+            <li data-coords="92,18">Grorud</li>
+            <li data-coords="93.5,18">Haugenstua</li>
+            <li data-coords="95.5,18">Høybråten</li>
+            <li data-coords="97,18">Lørenskog</li>
+            <li data-coords="98.5,18">Hanaborg</li>
+            <li data-coords="100,18">Fjellhamar</li>
+            <li data-coords="101.5,18">Strømmen</li>
+            <li data-coords="103,18">Sagdalen</li>
+            <li data-coords="104.5,18" data-labelPos="S" data-marker="@interchange" data-markerinfo="v6">Lillestrøm</li>
+            <li data-coords="104.5,18"></li>
+        </ul>
+        <ul data-color="#56c9fc" data-label="L2">
+            <li data-coords="80,18.6" data-dir="S" data-labelPos="S"></li>
+            <li data-coords="87.3,18.6" data-dir="S" data-labelPos="S"></li>
+            <li data-coords="89.3,20.6" data-dir="S" data-labelPos="S"></li>
+            <li data-coords="90,20.6" data-dir="S" data-labelPos="N">Nordstrand</li>
+        </ul>
+        <ul data-color="#56c9fc" data-label="L2x" data-outline="true">
+            <li data-coords="80,18.4" data-dir="S" data-labelPos="S"></li>
+            <li data-coords="87.4,18.4" data-dir="S" data-labelPos="S"></li>
+            <li data-coords="89.4,20.4" data-dir="S" data-labelPos="S"></li>
+            <li data-coords="90,20.4" data-dir="S" data-labelPos="N"></li>
+        </ul>
+        <ul data-color="#8bc63e" data-label="L3"></ul>
+        <ul data-color="#fff" data-label="L4 (45) Bergen - Myrdal">
+            <li data-coords="6,9.9" data-marker="@interchange">Bergen</li>
+            <li data-coords="6,9.8"></li>
+            <li data-coords="7,9.8"></li>
+            <li data-coords="7,9.9" data-marker="@interchange">Arna</li>
+            <li data-coords="7,9.8"></li>
+            <li data-coords="6,9.8"></li>
+            <li data-coords="8,9.8" data-labelPos="N">Trengereid</li>
+            <li data-coords="9.5,9.8" data-labelPos="N">Vaksdal</li>
+            <li data-coords="11,9.8" data-labelPos="N">Stanghelle</li>
+            <li data-coords="12,9.8"></li>
+            <li data-coords="12,9.9" data-marker="@interchange">Dale</li>
+            <li data-coords="12,9.8"></li>
+            <li data-coords="13,9.8" data-labelPos="N">Bolstadøyri</li>
+            <li data-coords="15,9.8" data-labelPos="N">Evanger</li>
+            <li data-coords="17,9.8" data-labelPos="N">Seimsgrend</li>
+            <li data-coords="19,9.8" data-labelPos="N">Bulken</li>
+            <li data-coords="20,9.8"></li>
+            <li data-coords="20,9.9" data-marker="@interchange">Voss</li>
+            <li data-coords="20,9.8"></li>
+            <li data-coords="21,9.8" data-labelPos="N">Gjerdåker</li>
+            <li data-coords="23,9.8" data-labelPos="N">Ygre</li>
+            <li data-coords="25,9.8" data-labelPos="N">Kløve</li>
+            <li data-coords="27,9.8" data-labelPos="N">Urdland</li>
+            <li data-coords="29,9.8" data-labelPos="N">Øyeflaten</li>
+            <li data-coords="31,9.8" data-labelPos="N">Skiple</li>
+            <li data-coords="33,9.8" data-labelPos="N">Reimegrend</li>
+            <li data-coords="35,9.8" data-labelPos="N">Mjølfjell</li>
+            <li data-coords="37,9.8" data-labelPos="N">Ljosanbotn</li>
+            <li data-coords="39,9.8" data-labelPos="N">Ørneberget</li>
+            <li data-coords="41,9.8" data-labelPos="N">Vieren</li>
+            <li data-coords="43,9.8" data-labelPos="N">Upsete</li>
+            <li data-coords="44,9.8"></li>
+            <li data-coords="44,9.9" data-marker="@interchange">Myrdal</li>
+        </ul>
+        <ul data-color="#fff" data-label="L5 (59) Stavanger-Egersund"></ul>
+        <ul data-color="#fff" data-label="L6 (26) Steinkjer-Lundamo"></ul>
+
+        <ul data-color="#ba0c30" data-label="R10 Drammen-Lillehammer">
+            <li data-coords="61,17.4" data-dir="N" data-labelPos="W"></li>
+            <li data-coords="105.4,17.4" data-dir="E"></li>
+            <li data-coords="106.4,16.4" data-dir="E"></li>
+            <li data-coords="106.4,13" data-labelPos="E">Tangen</li>
+            <li data-coords="106.4,12" data-labelPos="E">Stange</li>
+            <li data-coords="106.4,11" data-labelPos="E">Hamar</li>
+            <li data-coords="106.4,10" data-labelPos="E">Brumunddal</li>
+            <li data-coords="106.4,9" data-labelPos="E">Moelv</li>
+            <li data-coords="106.4,8" data-labelPos="E">Lillehammer</li>
+        </ul>
+
+        <ul data-color="#ba0c30" data-label="R11 Skien-Eidsvoll">
+            <li data-coords="60,28"></li>
+            <li data-coords="59.9,28" data-labelPos="W" data-marker="@interchange">Skien</li>
+            <li data-coords="60,28"></li>
+            <li data-coords="60,27"></li>
+            <li data-coords="59.9,27" data-labelPos="W" data-marker="@interchange">Porsgrunn</li>
+            <li data-coords="60,27"></li>
+            <li data-coords="60,26" data-labelPos="W">Larvik</li>
+            <li data-coords="60,25" data-labelPos="W">Sandefjord</li>
+            <li data-coords="60,24" data-labelPos="W">Torp</li>
+            <li data-coords="60,23" data-labelPos="W">Stokke</li>
+            <li data-coords="60,22" data-labelPos="W">Tønsberg</li>
+            <li data-coords="60,21" data-labelPos="W">Skoppum</li>
+            <li data-coords="60,20" data-labelPos="W">Holmestrand</li>
+            <li data-coords="60,19" data-labelPos="W">Sande</li>
+            <li data-coords="60,18"></li>
+            <li data-coords="61,17" data-dir="N" data-labelPos="W"></li>
+            <li data-coords="62,17"></li>
+            <li data-coords="104.5,17"></li>
+            <li data-coords="105,17"></li>
+            <li data-coords="106,16" data-dir="E" data-labelPos="W" data-marker="interchange" data-markerinfo="h2">Oslo
+                Lufthavn</li>
+            <li data-coords="106,15"></li>
+            <li data-coords="106.1,15" data-dir="E" data-labelPos="W" data-marker="interchange">Eidsvoll Verk</li>
+            <li data-coords="106,15"></li>
+            <li data-coords="106,14" data-dir="E" data-labelPos="W" data-marker="interchange" data-markerinfo="h2">
+                Eidsvoll</li>
+            <li data-coords="106,14"></li>
+        </ul>
+        <ul data-color="#ee1d23" data-label="L12 Kongsberg-Eidsvoll">
+            <li data-coords="52,21" data-labelPos="E">Kongsberg</li>
+            <li data-coords="52,20" data-labelPos="E">Darbu</li>
+            <li data-coords="52,19" data-dir="E" data-labelPos="E">Vestfossen</li>
+            <li data-coords="52,18.2" data-labelPos="E"></li>
+            <li data-coords="53,17.2" data-labelPos="E"></li>
+            <li data-coords="53,17.2" data-marker="@interchange" data-markerinfo="v4" data-labelPos="S">Hokksund</li>
+            <li data-coords="53,17.2" data-labelPos="E"></li>
+            <li data-coords="55,17.2" data-labelPos="S">Steinberg</li>
+            <li data-coords="57,17.2" data-labelPos="S">Mjøndalen</li>
+            <li data-coords="59,17.2" data-labelPos="S">Gulskogen</li>
+            <li data-coords="61,17.2" data-dir="S" data-labelPos="N"></li>
+            <li data-coords="61,17.6" data-dir="S" data-markerinfo="v5" data-marker="@interchange" data-labelPos="S">
+                Drammen</li>
+            <li data-coords="62,17.2" data-dir="S" data-labelPos="N"></li>
+            <li data-coords="105.2,17.2" data-dir="E"></li>
+            <li data-coords="106.2,16.4" data-dir="E"></li>
+            <li data-coords="106.2,16"></li>
+            <li data-coords="106.2,14"></li>
+        </ul>
+        <ul data-color="#f68b1f" data-label="L13 Drammen-Dal">
+            <li data-coords="61,17.6" data-dir="S" data-labelPos="E"></li>
+            <li data-coords="63,17.6" data-dir="S" data-labelPos="S">Brakerøya</li>
+            <li data-coords="64.5,17.6" data-dir="S" data-labelPos="S">Lier</li>
+            <li data-coords="107,17.6" data-dir="S" data-labelPos="S">Leirsund</li>
+            <li data-coords="108,17.6" data-dir="S" data-labelPos="N">Frogner</li>
+            <li data-coords="109,17.6" data-dir="S" data-labelPos="S">Lindeberg</li>
+            <li data-coords="110,17.6" data-dir="S" data-labelPos="N">Jessheim</li>
+            <li data-coords="111,17.6" data-dir="S" data-labelPos="S">Nordby</li>
+            <li data-coords="112,17.6" data-dir="S" data-labelPos="N">Hauerseter</li>
+            <li data-coords="113,17.6" data-dir="S" data-labelPos="S">Dal</li>
+        </ul>
+        <ul data-color="#fcb814" data-label="L14">
+            <li data-coords="67,17.8" data-dir="S" data-labelPos="S"></li>
+            <li data-coords="105,17.8" data-dir="S" data-labelPos="S"></li>
+            <li data-coords="106,18.8" data-dir="E" data-labelPos="S"></li>
+            <li data-coords="107,19.8" data-dir="S" data-labelPos="S">Tuen</li>
+            <li data-coords="108,19.8" data-dir="S" data-labelPos="N">Nerdrum</li>
+            <li data-coords="109,19.8" data-dir="S" data-labelPos="S">Fetsund</li>
+            <li data-coords="110,19.8" data-dir="S" data-labelPos="N">Svingen</li>
+            <li data-coords="111,19.8" data-dir="S" data-labelPos="S">Sørumsand</li>
+            <li data-coords="112,19.8" data-dir="S" data-labelPos="N">Blaker</li>
+            <li data-coords="113,19.8" data-dir="S" data-labelPos="S">Auli</li>
+            <li data-coords="114,19.8" data-dir="S" data-labelPos="N">Haga</li>
+            <li data-coords="115,19.8" data-dir="S" data-labelPos="S">Bodung</li>
+            <li data-coords="116,19.8" data-dir="S" data-labelPos="N">Årnes</li>
+            <li data-coords="117,19.8" data-dir="S" data-labelPos="S">Skarnes</li>
+            <li data-coords="118,19.8" data-dir="S" data-labelPos="N">Kongsvinger</li>
+        </ul>
+
+        <ul data-color="#865397" data-label="R20">
+            <li data-coords="87,19.2" data-dir="S" data-markerinfo="v15" data-marker="@interchange" data-labelPos="S">
+                Oslo
+                S</li>
+            <li data-coords="87,19.2" data-dir="S" data-labelPos="S"></li>
+            <li data-coords="89,21.2" data-dir="E" data-labelPos="S"></li>
+            <li data-coords="90,21.2" data-dir="S" data-labelPos="S"></li>
+        </ul>
+
+        <ul data-color="#ab8cc0" data-label="L21">
+            <li data-coords="80,19" data-dir="S" data-markerinfo="v5" data-marker="@interchange" data-labelPos="S">
+                Stabekk</li>
+            <li data-coords="81.5,19" data-dir="S" data-markerinfo="v12" data-marker="@interchange" data-labelPos="S">
+                Lysaker</li>
+            <li data-coords="83,19" data-dir="S" data-markerinfo="v11" data-marker="@interchange" data-labelPos="S">
+                Skøyen</li>
+            <li data-coords="85,19" data-dir="S" data-markerinfo="v11" data-marker="@interchange" data-labelPos="S">
+                Nationaltheatret</li>
+            <li data-coords="87,19" data-dir="S" data-labelPos="S"></li>
+            <li data-coords="87.1,19" data-dir="S" data-labelPos="S"></li>
+            <li data-coords="89.1,21" data-dir="S" data-labelPos="S"></li>
+            <li data-coords="90,21" data-dir="S" data-labelPos="S"></li>
+        </ul>
+        <ul data-color="#007db1" data-label="L22">
+            <li data-coords="83,18.8" data-dir="S" data-labelPos="S"></li>
+            <li data-coords="87.2,18.8" data-dir="S" data-labelPos="S"></li>
+            <li data-coords="89.2,20.8" data-dir="S" data-labelPos="S"></li>
+            <li data-coords="90,20.8" data-dir="S" data-labelPos="S"></li>
+        </ul>
+        <ul data-color="#1b9c42" data-label="R30 Oslo-Gjøvik"></ul>
+
+
+
+        <ul data-color="#ffffff" data-label="R40 (41) Bergensbanen">
+            <li data-coords="6,10"></li>
+            <li data-coords="12,10"></li>
+            <li data-coords="20,10"></li>
+            <li data-coords="44,10"></li>
+            <li data-coords="45,10" data-labelPos="N">Haugastøl</li>
+            <li data-coords="46,10" data-labelPos="S">Ustaoset</li>
+            <li data-coords="47,10" data-labelPos="N">Geilo</li>
+            <li data-coords="48,10" data-dir="E" data-labelPos="S">Ål</li>
+            <li data-coords="49,10" data-dir="E" data-labelPos="NE">Gol</li>
+            <li data-coords="50,11.5" data-labelPos="NE">Nesbyen</li>
+            <li data-coords="51,13" data-labelPos="NE">Flå</li>
+            <li data-coords="52,14.5" data-labelPos="NE">Hønefoss</li>
+            <li data-coords="52,15.6" data-dir="E" data-labelPos="E">Vikersund</li>
+            <li data-coords="53,16.6" data-dir="S" data-labelPos="E"></li>
+            <li data-coords="87,16.6" data-dir="S" data-labelPos="E"></li>
+        </ul>
+
+        <ul data-color="#ffffff" data-label="L41 (42) Flåmsbana"></ul>
+        <ul data-color="#fff" data-label="R50 (50) Sørlandsbanen"></ul>
+        <ul data-color="#fff" data-label="L51 (52) Sørlandsbanen">
+            <li data-coords="59.8,27"></li>
+            <li data-coords="59.8,28"></li>
+            <li data-coords="58.8,29" data-dir="S"></li>
+            <li data-coords="58,29">Nisterud</li>
+            <li data-coords="51.9,29" data-dir="S" data-labelPos="NE" data-marker="@interchange">Nordagutu</li>
+            <li data-coords="50,29" data-labelPos="N">Trykkerud</li>
+            <li data-coords="49,29" data-labelPos="W">Notodden</li>
+        </ul>
+        <ul data-color="#fff" data-label="L52 (53) Nelaug-Arendal"></ul>
+        <ul data-color="#fff" data-label="R60 (21) Trondheim via Dovre"></ul>
+        <ul data-color="#fff" data-label="R61 (25) Hamar-Røros"></ul>
+        <ul data-color="#fff" data-label="R62 (25) Røros-Trondheim"></ul>
+        <ul data-color="#fff" data-label="R63 (22) Dombås-Åndalsnes"></ul>
+        <ul data-color="#fff" data-label="R70 (71) Trondheim S-Bodø"></ul>
+
+
+    </div>
+    <div id="legend"></div>
+
+
+    <script type="text/javascript">
+        $(".subway-map").subwayMap({ debug: true });
+    </script>
+</body>
+
+</html>

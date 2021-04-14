@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="340px" height="160px" viewBox="0 0 340 160" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 51.3 (57544) - http://www.bohemiancoding.com/sketch -->
+    <title>Line/Track indicator/L1</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Line/Track-indicator/L1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <rect id="Rectangle-257" fill="#D72D82" x="0" y="0" width="340" height="160"></rect>
+        <polygon id="1" fill="#FFFFFF" points="219.082031 128 199.667969 128 199.667969 51.984375 180.732422 59.2988281 180.732422 43.1660156 217.03125 28.3320312 219.082031 28.3320312"></polygon>
+        <polygon id="L" fill="#FFFFFF" points="114.095703 111.320312 149.369141 111.320312 149.369141 128 93.9980469 128 93.9980469 28.46875 114.095703 28.46875"></polygon>
+    </g>
+</svg>
