@@ -1,44 +1,31 @@
 <?php $pageRequiresLogin = false;
 include "./config/session.php";
-include "./config/connectNew.php";
-
-include "./database/getPlatformData.php";
-include "./database/getStationData.php";
-include "./database/getLineData.php";
-include "./database/getViaData.php";
-include "./database/getViaLineData.php";
-
-$stationDataQuery = new getStationData($databaseConnection);
-$lineDataQuery = new getLineData($databaseConnection);
-$viaDataQuery = new getViaData($databaseConnection);
-$viaLineDataQuery = new getViaLineData($databaseConnection);
-$platformDataQuery = new getPlatformData($databaseConnection);
+include "./config/connect.php";
 
 $stationRef = $_GET["stationRef"];
-$stationID = $_GET["stationID"];
 
-if ($stationID == "" && $stationRef == "") {
-    $stationID = 217;
-} else if ($stationRef != "") {
-    $stationID = $stationDataQuery->getStationID($stationRef);
+if ($stationRef == "") {
+    $stationRef = "OSL";
 }
 
-$vias = $viaDataQuery->getVias($stationID);
+include "./database/getStationData.php";
+$stationDataQuery = new getStationData($databaseConnection);
+$stationInfo = $stationDataQuery->getStationInformation($stationRef);
 
+include "./database/getPlatformData.php";
+$platformDataQuery = new getPlatformData($databaseConnection);
+$platformsRow = $platformDataQuery->getPlatforms($stationRef);
 
-$platformsRow = $platformDataQuery->getPlatforms($stationID);
+include "./database/getNextToData.php";
+$nextToDataQuery = new getNextToData($databaseConnection);
+$nextTos = $nextToDataQuery->getNextTos($stationRef);
 
-$stationInfo = $stationDataQuery->getStationInformation($stationID);
-$stationInfo["stationOpenDate"];
-if ($stationInfo["stationOpenDate"] == "") {
-    $stationInfo["stationOpenDate"] = "0001-01-01";
-}
-$stationInfo["stationCloseDate"];
-if ($stationInfo["stationCloseDate"] == "") {
-    $stationInfo["stationCloseDate"] = "0001-01-01";
-}
+include "./database/getLineData.php";
+$lineDataQuery = new getLineData($databaseConnection);
 
-$stationRef = $stationInfo["stationRef"];
+include "./database/getNextToEntryData.php";
+$nextToEntryDataQuery = new getNextToEntryData($databaseConnection);
+
 ?>
 <!DOCTYPE html>
 
@@ -50,9 +37,9 @@ $stationRef = $stationInfo["stationRef"];
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;200;300;400&display=swap" rel="stylesheet">
     <title>Station Information - CandyTrains</title>
     <meta property="og:type" content="website">
-    <meta property="og:title" content="<?php echo $stationInfo["stationName"] ?> - Candytrains" />
-    <meta property="og:description" content="<?php echo $stationInfo["stationName"] ?> Station on CandyTrains, a website of all things norwegian railways!" />
-    <meta property="og:url" content="https://trains.candycryst.com/station.php?station=<?php echo $stationInfo["stationRef"] ?>" />
+    <meta property="og:title" content="<?php echo $stationInfo["station_name"] ?> - Candytrains" />
+    <meta property="og:description" content="<?php echo $stationInfo["station_name"] ?> Station on CandyTrains, a website of all things norwegian railways!" />
+    <meta property="og:url" content="./station.php?station=<?php echo $stationInfo["station_ref"] ?>" />
     <meta property="og:image" content="https://files.candycryst.com/assets/candyTransport/profile.png" />
     <meta name="theme-color" content="#629aa4">
     <link rel="icon" href="https://files.candycryst.com/assets/candyTransport/profile.png" type="image/png" />
@@ -60,7 +47,7 @@ $stationRef = $stationInfo["stationRef"];
 </head>
 
 <body>
-    <h1><?php echo $stationInfo["stationName"]; ?> Station</h1>
+    <h1><?php echo $stationInfo["station_name"]; ?> Station</h1>
     <?php
 
 
@@ -69,41 +56,18 @@ $stationRef = $stationInfo["stationRef"];
         <table class="stationLinks">
             <form action="./database/stations.php" method="post">
                 <tr>
-                    <th class="rightHeader">ID</th>
+                    <th class="rightHeader">Station Ref</th>
                     <td>
-                        <input disabled type="text" value="<?php echo $stationID ?>">
+                        <input disabled type="text" value="<?php echo $stationRef ?>">
                         <input hidden type="text" name="action" value="update">
-                        <input hidden type="text" name="stationID" value="<?php echo $stationID ?>">
-                        <input hidden type="text" name="returnUrl" value="https://trains.candycryst.com/station.php">
+                        <input hidden type="text" name="stationRef" value="<?php echo $stationRef ?>">
+                        <input hidden type="text" name="returnUrl" value="../station.php">
                     </td>
                 </tr>
-                <tr>
-                    <th class="rightHeader">Code</th>
-                    <td><input disabled type="text" name="stationRef" value="<?php echo $stationRef ?>"></td>
-                </tr>
+
                 <tr>
                     <th class="rightHeader">Name</th>
-                    <td><input type="text" value="<?php echo $stationInfo["stationName"] ?>" name="stationName" required></td>
-                </tr>
-                <tr>
-                    <th class="rightHeader">lat</th>
-                    <td><input type="text" value="<?php echo $stationInfo["stationLat"] ?>" name="stationLat" required></td>
-                </tr>
-                <tr>
-                    <th class="rightHeader">long</th>
-                    <td><input type="text" value="<?php echo $stationInfo["stationLong"] ?>" name="stationLong" required></td>
-                </tr>
-                <tr>
-                    <th class="rightHeader">Open date</th>
-                    <td><input type="date" value="<?php echo $stationInfo["stationOpenDate"] ?>" name="stationOpenDate"></td>
-                </tr>
-                <tr>
-                    <th class="rightHeader">Close date</th>
-                    <td><input type="date" value="<?php echo $stationInfo["stationCloseDate"] ?>" name="stationCloseDate"></td>
-                </tr>
-                <tr>
-                    <th class="rightHeader">Is closed</th>
-                    <td><input type="checkbox" value="<?php echo $stationInfo["stationIsClosed"] ?>" name="stationIsClosed"></td>
+                    <td><input type="text" value="<?php echo $stationInfo["station_name"] ?>" name="stationName" required></td>
                 </tr>
                 <tr>
                     <td colspan="2"><input type="submit" value="Done" class="button"></td>
@@ -125,17 +89,17 @@ $stationRef = $stationInfo["stationRef"];
                 <tr>
                 </tr>
                 <td>
-                    <a href="https://trains.candycryst.com/monitor.php?type=platform&station=<?php echo $stationID ?>&platform=<?php echo $platformRow["platformNumber"] ?>"><?php echo $platformRow["platformNumber"] ?></a>
+                    <a href="./monitor.php?type=platform&station=<?php echo $stationRef ?>&platform=<?php echo $platformRow["platform_number"] ?>"><?php echo $platformRow["platform_number"] ?></a>
                 </td>
                 <td>
-                    <?php echo $platformRow["platformLength"] . "m" ?>
+                    <?php echo $platformRow["platform_length"] . "m" ?>
                 </td>
                 <form action="./database/managePlatforms.php" method="post">
                     <td>
                         <input type="checkbox" required>
-                        <input hidden type="text" name="platformID" value="<?php echo $platformRow["platformID"] ?>">
+                        <input hidden type="text" name="platformID" value="<?php echo $platformRow["platform_id"] ?>">
                         <input hidden type="text" name="action" value="delete">
-                        <input hidden type="text" name="returnUrl" value="https://trains.candycryst.com/station.php?stationRef=<?php echo $stationRef ?>">
+                        <input hidden type="text" name="returnUrl" value="../station.php?stationRef=<?php echo $stationRef ?>">
                         <input type="submit" value="Delete" class="button">
                     </td>
                 </form>
@@ -151,35 +115,35 @@ $stationRef = $stationInfo["stationRef"];
                         <input type="checkbox" name="platformHasSectors" checked>
                     </td>
                     <td>
-                        <input hidden type="text" name="stationID" value="<?php echo $stationID ?>">
+                        <input hidden type="text" name="stationRef" value="<?php echo $stationRef ?>">
                         <input hidden type="text" name="action" value="insert">
-                        <input hidden type="text" name="returnUrl" value="https://trains.candycryst.com/station.php?stationRef=<?php echo $stationRef ?>">
+                        <input hidden type="text" name="returnUrl" value="../station.php?stationRef=<?php echo $stationRef ?>">
                         <input type="submit" value="Add" class="button">
                     </td>
                 </form>
             </tr>
         </table>
         <?php
-        $num_rows = mysqli_num_rows($vias);
-        while ($viaListRow = mysqli_fetch_array($vias)) {
+        $num_rows = mysqli_num_rows($nextTos);
+        while ($nextToRow = mysqli_fetch_array($nextTos)) {
         ?>
             <table>
                 <tr>
-                    <form action="./database/manageVias.php" method="post">
+                    <form action="./database/manageNextTos.php" method="post">
                         <th colspan="2">
-                            <input hidden type="text" name="viaID" value="<?php echo $viaListRow["viaID"] ?>">
-                            <input hidden type="text" name="returnUrl" value="https://trains.candycryst.com/station.php?stationRef=<?php echo $stationRef ?>">
+                            <input hidden type="text" name="nextToID" value="<?php echo $nextToRow["next_to_id"] ?>">
+                            <input hidden type="text" name="returnUrl" value="../station.php?stationRef=<?php echo $stationRef ?>">
                             <input hidden type="text" name="action" value="update">
-                            <input size="10" name="viaDestinationText" value="<?php echo $viaListRow["viaDestinationText"] ?>"></input>
-                            <input size="30" name="viaNoteText" value="<?php echo $viaListRow["viaNoteText"] ?>"></input>
+                            <input size="10" name="nextToTitle" value="<?php echo $nextToRow["next_to_title"] ?>"></input>
+                            <input size="30" name="nextToContent" value="<?php echo $nextToRow["next_to_content"] ?>"></input>
                             <input type="submit" value="Update" class="button">
                         </th>
                     </form>
-                    <form action="./database/manageVias.php" method="post">
+                    <form action="./database/manageNextTos.php" method="post">
                         <td>
                             <input type="checkbox" required>
-                            <input hidden type="text" name="viaID" value="<?php echo $viaListRow["viaID"] ?>">
-                            <input hidden type="text" name="returnUrl" value="https://trains.candycryst.com/station.php?stationRef=<?php echo $stationRef ?>">
+                            <input hidden type="text" name="nextToID" value="<?php echo $nextToRow["next_to_id"] ?>">
+                            <input hidden type="text" name="returnUrl" value="../station.php?stationRef=<?php echo $stationRef ?>">
                             <input hidden type="text" name="action" value="delete">
                             <input type="submit" value="Delete" class="button">
                         </td>
@@ -192,42 +156,42 @@ $stationRef = $stationInfo["stationRef"];
                     <th></th>
                 </tr>
                 <?php
-                $viaLinesResult = $viaLineDataQuery->getViaLines($viaListRow["viaID"]);
-                while ($viaLineRow = mysqli_fetch_array($viaLinesResult)) { ?>
+                $NextToEntriesResult = $nextToEntryDataQuery->getEntries($nextToRow["next_to_id"]);
+                while ($NextToEntriesRow = mysqli_fetch_array($NextToEntriesResult)) { ?>
                     <tr>
-                        <form action="./database/manageViaLines.php" method="post">
+                        <form action="./database/manageNextToEntries.php" method="post">
                             <td>
-                                <?php echo $lineDataQuery->getLineDropdown($viaLineRow["viaLineLineID"]); ?>
+                                <?php echo $lineDataQuery->getLineDropdown($NextToEntriesRow["entry_line"]); ?>
                             </td>
                             <td>
-                                <?php echo $stationDataQuery->getStationDropdown($viaLineRow["viaLineDestinationStationID"]); ?>
+                                <?php echo $stationDataQuery->getStationDropdown($NextToEntriesRow["entry_destination"]); ?>
                                 <input hidden type="text" name="action" value="update">
-                                <input hidden type="text" name="viaLineID" value="<?php echo $viaLineRow["viaLineID"] ?>">
-                                <input hidden type="text" name="returnUrl" value="https://trains.candycryst.com/station.php?stationRef=<?php echo $stationRef ?>">
+                                <input hidden type="text" name="entryID" value="<?php echo $NextToEntriesRow["entry_id"] ?>">
+                                <input hidden type="text" name="returnUrl" value="../station.php?stationRef=<?php echo $stationRef ?>">
                                 <input type="submit" value="Submit" class="button">
                             </td>
                         </form>
-                        <form action="./database/manageViaLines.php" method="post">
+                        <form action="./database/manageNextToEntries.php" method="post">
                             <td>
                                 <input type="checkbox" required>
                                 <input hidden type="text" name="action" value="delete">
-                                <input hidden type="text" name="viaLineID" value="<?php echo $viaLineRow["viaLineID"] ?>">
-                                <input hidden type="text" name="returnUrl" value="https://trains.candycryst.com/station.php?stationRef=<?php echo $stationRef ?>">
+                                <input hidden type="text" name="entryID" value="<?php echo $NextToEntriesRow["entry_id"] ?>">
+                                <input hidden type="text" name="returnUrl" value="../station.php?stationRef=<?php echo $stationRef ?>">
                                 <input type="submit" value="Delete" class="button">
                             </td>
                         </form>
                     </tr>
                 <?php } ?>
                 <tr>
-                    <form action="./database/manageViaLines.php" method="post">
+                    <form action="./database/manageNextToEntries.php" method="post">
                         <td>
                             <?php echo $lineDataQuery->getLineDropdown(0); ?>
                         </td>
                         <td>
                             <?php echo $stationDataQuery->getStationDropdown(0); ?>
-                            <input hidden type="text" name="viaLineViaID" value="<?php echo $viaListRow["viaID"] ?>">
+                            <input hidden type="text" name="entryParent" value="<?php echo $nextToRow["next_to_id"] ?>">
                             <input hidden type="text" name="action" value="insert">
-                            <input hidden type="text" name="returnUrl" value="https://trains.candycryst.com/station.php?stationRef=<?php echo $stationRef ?>">
+                            <input hidden type="text" name="returnUrl" value="../station.php?stationRef=<?php echo $stationRef ?>">
                             <input type="submit" value="Add" class="button">
                         </td>
                     </form>
@@ -238,17 +202,17 @@ $stationRef = $stationInfo["stationRef"];
         if ($num_rows < 4) { ?>
             <table>
                 <tr>
-                    <th colspan="2">Add via</th>
+                    <th colspan="2">Add Next To</th>
                 </tr>
-                <form action="./database/manageVias.php" method="post">
+                <form action="./database/manageNextTo.php" method="post">
                     <tr>
                         <th class="rightHeader">Text</th>
                         <th>
-                            <input hidden type="text" name="returnUrl" value="https://trains.candycryst.com/station.php?stationRef=<?php echo $stationRef ?>">
+                            <input hidden type="text" name="returnUrl" value="../station.php?stationRef=<?php echo $stationRef ?>">
                             <input hidden type="text" name="action" value="insert">
-                            <input hidden type="text" name="stationID" value="<?php echo $stationID ?>">
-                            <input required type="text" name="viaDestinationText">
-                            <input type="text" name="viaNoteText">
+                            <input hidden type="text" name="stationRef" value="<?php echo $stationRef ?>">
+                            <input required type="text" name="nextToTitle">
+                            <input type="text" name="nextToContent">
                             <input type="submit" value="Add" class="button">
                         </th>
                     </tr>
@@ -259,45 +223,42 @@ $stationRef = $stationInfo["stationRef"];
         <table>
             <tr>
                 <th class="rightHeader">Code</th>
-                <td><?php echo $stationInfo["stationRef"] ?></td>
+                <td><?php echo $stationInfo["station_ref"] ?></td>
             </tr>
             <tr>
                 <th class="rightHeader">Name</th>
-                <td><?php echo $stationInfo["stationName"] ?></td>
+                <td><?php echo $stationInfo["station_name"] ?></td>
             </tr>
-            <tr>
-                <th class="rightHeader">lat</th>
-                <td><?php echo $stationInfo["stationLat"] ?></td>
-            </tr>
-            <tr>
-                <th class="rightHeader">long</th>
-                <td><?php echo $stationInfo["stationLong"] ?></td>
-            </tr>
+
         </table>
     <?php } ?>
     <table class="stationLinks">
         <tr>
             <th class="rightHeader">Platform&nbspMonitors</th>
             <th>
-                <div><a href="./platformViewer.php?station=<?php echo $stationID ?>">All</a></div>
+                <div><a href="./platformViewer.php?station=<?php echo $stationRef ?>">All</a></div>
                 <?php
-                $platformsRow = $platformDataQuery->getPlatforms($stationID);
+                $platformsRow = $platformDataQuery->getPlatforms($stationRef);
                 while ($row2 = mysqli_fetch_array($platformsRow)) { ?>
-                    <div class="platformNumberEdit"><a href="https://trains.candycryst.com/monitor.php?type=platform&station=<?php echo $stationID ?>&platform=<?php echo $row2["platformNumber"] ?>"><?php echo $row2["platformNumber"] ?></div>
+                    <div class="platformNumberEdit"><a href="./monitor.php?type=platform&station=<?php echo $stationRef ?>&platform=<?php echo $row2["platform_number"] ?>"><?php echo $row2["platform_number"] ?></div>
                 <?php } ?>
                 </td>
         </tr>
         <tr>
             <th class="rightHeader">Departures/Arrivals</th>
             <td>
-                <a href="https://trains.candycryst.com/monitor.php?type=departures&station=<?php echo $stationID ?>">Main departures</a><br />
-                <a href="https://trains.candycryst.com/monitor.php?type=nextTo&station=<?php echo $stationID ?>">Main next departure towards</a><br />
-                <a href="https://trains.candycryst.com/monitor.php?type=arrivals&station=<?php echo $stationID ?>">Main arrivals</a><br />
+                <a href="./monitor.php?type=departures&station=<?php echo $stationRef ?>">Main departures</a><br />
+                <a href="./monitor.php?type=nextTo&station=<?php echo $stationRef ?>">Main next departure towards</a><br />
+                <a href="./monitor.php?type=arrivals&station=<?php echo $stationRef ?>">Main arrivals</a><br />
             </td>
         </tr>
         <tr>
             <th class="rightHeader">General links</th>
-            <td><a href="./stationList.php">Station List</a><br /><a href="./stationMap.php">Station Map</a></td>
+            <td>
+                <a href="./stationList.php">Station List</a>
+                <!-- <br /> -->
+                <!-- <a href="./stationMap.php">Station Map</a> -->
+            </td>
         </tr>
     </table>
 </body>

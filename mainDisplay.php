@@ -5,17 +5,17 @@ if ($displayType == "") {
     $displayType = "departures";
 }
 if ($station == "") {
-    $station = 217;
+    $station = "OSL";
 }
-include "./config/connectNew.php";
+include "./config/connect.php";
 include "./database/getStationData.php";
 $stationQuery = new getStationData($databaseConnection);
-include "./database/getViaData.php";
-$viaQuery = new getViaData($databaseConnection);
-include "./database/getViaLineData.php";
-$viaLineQuery = new getViaLineData($databaseConnection);
-$thisStationName = $stationQuery->getStationID($station);
-$vias = $viaQuery->getViasNextTo($station);
+include "./database/getNextToData.php";
+$nextToQuery = new getNextToData($databaseConnection);
+include "./database/getNextToEntryData.php";
+$nextToEntryQuery = new getNextToEntryData($databaseConnection);
+$stationInfo = $stationQuery->getStationInformation($station);
+$nextTos = $nextToQuery->getNextTosNextTo($station);
 
 ?>
 <!DOCTYPE html>
@@ -24,7 +24,7 @@ $vias = $viaQuery->getViasNextTo($station);
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title><?php echo $thisStationName ?> - Main Display - CandyTransport</title>
+    <title><?php echo $stationInfo["station_name"] ?> - Main Display - CandyTransport</title>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;200;300;400&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="./assets/css/norwegianMainDisplay.css">
     <script src="https://kit.fontawesome.com/185bd08920.js" crossorigin="anonymous"></script>
@@ -91,9 +91,9 @@ $vias = $viaQuery->getViasNextTo($station);
     <!-- Next to -->
     <div class="nextToTopBar" id="nextToTopBar"></div>
     <div class="nextToHeader" id="nextToHeader"><b>Neste tog til</b> Next train to</div>
-    <?php if ($vias[0] != "") {
+    <?php if ($nextTos[0] != "") {
         echo '<div class="nextToDestinationOne" id="nextToDestinationOne">
-            <div class="nextToDestinationText" id="nextToDestination0Text"><b>' . $vias[0][1] . '</b> ' . $vias[0][3] . '</div>
+            <div class="nextToDestinationText" id="nextToDestination0Text"><b>' . $nextTos[0][1] . '</b> ' . $nextTos[0][3] . '</div>
             <div class="nextToDestinationDeparture" id="nextToDestinationInfo0"></div>
             <div class="nextToDestinationDeparture" id="nextToDestinationInfo1"></div>
         </div>';
@@ -102,23 +102,23 @@ $vias = $viaQuery->getViasNextTo($station);
         <div class="nextToDestinationText"><b>Ikke konfigurert</b> Not configured</div>
     </div>';
     }
-    if ($vias[1] != "") {
+    if ($nextTos[1] != "") {
         echo '<div class="nextToDestinationTwo" id="nextToDestinationTwo">
-            <div class="nextToDestinationText" id="nextToDestination1Text"><b>' . $vias[1][1] . '</b> ' . $vias[1][3] . '</div>
+            <div class="nextToDestinationText" id="nextToDestination1Text"><b>' . $nextTos[1][1] . '</b> ' . $nextTos[1][3] . '</div>
             <div class="nextToDestinationDeparture" id="nextToDestinationInfo2"></div>
             <div class="nextToDestinationDeparture" id="nextToDestinationInfo3"></div>
         </div>';
     }
-    if ($vias[2] != "") {
+    if ($nextTos[2] != "") {
         echo '<div class="nextToDestinationThree" id="nextToDestinationThree">
-            <div class="nextToDestinationText" id="nextToDestination2Text"><b>' . $vias[2][1] . '</b> ' . $vias[2][3] . '</div>
+            <div class="nextToDestinationText" id="nextToDestination2Text"><b>' . $nextTos[2][1] . '</b> ' . $nextTos[2][3] . '</div>
             <div class="nextToDestinationDeparture" id="nextToDestinationInfo4"></div>
             <div class="nextToDestinationDeparture" id="nextToDestinationInfo5"></div>
         </div>';
     }
-    if ($vias[3] != "") {
+    if ($nextTos[3] != "") {
         echo '<div class="nextToDestinationFour" id="nextToDestinationFour">
-            <div class="nextToDestinationText" id="nextToDestination3Text"><b>' . $vias[3][1] . '</b> ' . $vias[3][3] . '</b></div>
+            <div class="nextToDestinationText" id="nextToDestination3Text"><b>' . $nextTos[3][1] . '</b> ' . $nextTos[3][3] . '</b></div>
             <div class="nextToDestinationDeparture" id="nextToDestinationInfo6"></div>
             <div class="nextToDestinationDeparture" id="nextToDestinationInfo7"></div>
         </div>';

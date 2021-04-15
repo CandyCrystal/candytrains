@@ -1,5 +1,5 @@
 <?php
-include "./config/connectNew.php";
+include "./config/connect.php";
 include "./database/getStationData.php";
 $thisLink = "https://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
 $stationQuery = new getStationData($databaseConnection);
@@ -25,42 +25,42 @@ if ($platform == "") {
 
 switch ($displayType) {
     case "departures":
-        $iframe = 'https://trains.candycryst.com/mainDisplay.php?station=' . $station;
+        $iframe = './mainDisplay.php?station=' . $station;
         $ratio[0] = 16;
         $ratio[1] = 9;
         $title = "Departures from " . $thisStation;
         $extendedTitle = $title;
         break;
     case "nextTo":
-        $iframe = 'https://trains.candycryst.com/mainDisplay.php?displayType=nextTo&station=' . $station;
+        $iframe = './mainDisplay.php?displayType=nextTo&station=' . $station;
         $ratio[0] = 16;
         $ratio[1] = 9;
         $title = "Departures next to from " . $thisStation;
         $extendedTitle = "The next two departures to up to four other stations from " . $thisStation;
         break;
     case "arrivals":
-        $iframe = 'https://trains.candycryst.com/mainDisplay.php?displayType=arrivals&station=' . $station;
+        $iframe = './mainDisplay.php?displayType=arrivals&station=' . $station;
         $ratio[0] = 16;
         $ratio[1] = 9;
         $title = "Arrivals at " . $thisStation;
         $extendedTitle = $title;
         break;
     case "departuresSplitFlap":
-        $iframe = 'https://trains.candycryst.com/departures_splitFlap.php?station=' . $station;
+        $iframe = './departures_splitFlap.php?station=' . $station;
         $ratio[0] = 16;
         $ratio[1] = 9;
         $title = "Departures from " . $thisStation;
         $extendedTitle = $title;
         break;
     case "platform":
-        $iframe = 'https://trains.candycryst.com/platformViewer.php?station=' . $station . '&platforms=' . $platform;
+        $iframe = './platformViewer.php?station=' . $station . '&platforms=' . $platform;
         $ratio[0] = 282;
         $ratio[1] = 125;
         $title = "Departures from " . $thisStation . " Platform " . $platform;
         $extendedTitle = $title;
         break;
     case "platformNumber":
-        $iframe = 'https://trains.candycryst.com/platformNumber.php?platformName=' . $platform;
+        $iframe = './platformNumber.php?platformName=' . $platform;
         $ratio[0] = 9;
         $ratio[1] = 16;
         $title = $thisStation . " Platform number " . $platform;

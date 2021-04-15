@@ -1,6 +1,6 @@
 <?php
 
-class getViaLineData
+class getNextToEntryData
 {
     private $databaseConnection;
 
@@ -8,10 +8,11 @@ class getViaLineData
     {
         $this->databaseConnection = $databaseConnection;
     }
-    function getViaLines($viaLineViaID)
+    function getEntries($parent)
     {
         $databaseConnection = $this->databaseConnection;
-        $query = "SELECT * FROM viaLines WHERE viaLineViaID = $viaLineViaID ORDER BY viaLineLineID";
+        $parent = mysqli_real_escape_string($this->databaseConnection, $parent);
+        $query = "SELECT * FROM next_to_entries WHERE entry_parent = $parent ORDER BY entry_line";
         return $databaseConnection->query($query);
     }
 }

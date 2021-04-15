@@ -15,17 +15,17 @@ class getLineData
     function getLineDropdown($lineID)
     {
         $databaseConnection = $this->databaseConnection;
-        $query = "SELECT * FROM trainLines ORDER BY lineName";
+        $query = "SELECT * FROM train_lines ORDER BY line_name";
 
         $dropDownResults = $databaseConnection->query($query);
         $dropDown = "<select name='lineID' required><option></option>";
 
         while ($dropDownRow = mysqli_fetch_array($dropDownResults)) {
-            $dropDown .= "<option value='{$dropDownRow["lineID"]}'";
-            if ($dropDownRow['lineID'] == $lineID) {
+            $dropDown .= "<option value='{$dropDownRow["line_id"]}'";
+            if ($dropDownRow['line_id'] == $lineID) {
                 $dropDown .= "selected='selected'";
             }
-            $dropDown .= ">{$dropDownRow["lineName"]} </option>";
+            $dropDown .= ">{$dropDownRow["line_name"]} </option>";
         }
         $dropDown .= "</select>";
         return $dropDown;
@@ -33,7 +33,8 @@ class getLineData
     function getLineID($lineName)
     {
         $databaseConnection = $this->databaseConnection;
-        $query = "SELECT * FROM trainLines WHERE lineName = '$lineName'";
+        $lineName = mysqli_real_escape_string($this->databaseConnection, $lineName);
+        $query = "SELECT line_id FROM train_lines WHERE line_name = '$lineName'";
         $result = $databaseConnection->query($query);
         $row = mysqli_fetch_all($result);
         return $row[0][0];
@@ -41,7 +42,8 @@ class getLineData
     function getLineName($lineID)
     {
         $databaseConnection = $this->databaseConnection;
-        $query = "SELECT lineName FROM trainLines WHERE lineID = '$lineID'";
+        $lineID = mysqli_real_escape_string($this->databaseConnection, $lineID);
+        $query = "SELECT line_name FROM train_lines WHERE line_id = $lineID";
         $result = $databaseConnection->query($query);
         $row = mysqli_fetch_all($result);
         return $row[0][0];

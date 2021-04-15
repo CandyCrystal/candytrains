@@ -5,11 +5,11 @@ if ($platform == "") {
     $platform = 1;
 }
 
-$station = $_GET["station"];
+$stationRef = $_GET["station"];
 
 
-if ($station == "") {
-    $station = 217;
+if ($stationRef == "") {
+    $stationRef = "OSL";
 }
 
 $side = $_GET["side"];
@@ -18,11 +18,11 @@ if ($side != "left") {
     $side = "right";
 }
 include "../database/getStationData.php";
-include "../config/connectNew.php";
+include "../config/connect.php";
 $stationDataQuery = new getStationData($databaseConnection);
 
 $h = new getPlatformDepartures();
-$data = $h->getInfo($platform, $stationDataQuery->getStationRef($station), $side);
+$data = $h->getInfo($platform, $stationRef, $side);
 echo json_encode($data);
 class getPlatformDepartures
 {
@@ -132,7 +132,7 @@ class getPlatformDepartures
                 if ($norwegianText != null) {
                     $departures[0]["viaText"] = "";
                 }
-                    $numParts = count($departureVehicle->tf_Vehicle->tf_TrainPart);
+                $numParts = count($departureVehicle->tf_Vehicle->tf_TrainPart);
                 if ($side == "right") {
                     for ($i = 0; $i < $numParts; $i++) {
                         $thisPart = $departureVehicle->tf_Vehicle->tf_TrainPart[$numParts - 1 - $i];

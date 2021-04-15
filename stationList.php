@@ -1,6 +1,6 @@
 <?php $pageRequiresLogin = false;
 include "./config/session.php";
-include "./config/connectNew.php";
+include "./config/connect.php";
 include "./config/candyDirectory.php";
 include "./database/getStationData.php";
 if (isset($_SESSION['login_user'])) {
@@ -12,7 +12,7 @@ if (isset($_SESSION['login_user'])) {
 };
 
 $stationQuery = new getStationData($databaseConnection);
-$stationList = $stationQuery->getStations("open");
+$stationList = $stationQuery->getStations();
 
 
 ?>
@@ -36,20 +36,16 @@ $stationList = $stationQuery->getStations("open");
             <th></th>
             <th>Code</th>
             <th>Name</th>
-            <th>Lat</th>
-            <th>Long</th>
         </tr>
         <?php while ($row = mysqli_fetch_array($stationList)) { ?>
             <tr>
-                <th><a href="./station.php?stationRef=<?php echo $row["stationRef"]; ?>">View station</a></th>
-                <td><?php echo $row["stationRef"]; ?></td>
-                <td><?php echo $row["stationName"]; ?></td>
-                <td><?php echo $row["stationLat"]; ?></td>
-                <td><?php echo $row["stationLong"]; ?></td>
+                <th><a href="./station.php?stationRef=<?php echo $row["station_ref"]; ?>">View station</a></th>
+                <td><?php echo $row["station_ref"]; ?></td>
+                <td><?php echo $row["station_name"]; ?></td>
             </tr>
         <?php } ?>
         <tr>
-            <th colspan="5"><a href="./add/addStation.php">+ Add station</a></th>
+            <th colspan="3"><a href="./add/addStation.php">+ Add station</a></th>
         </tr>
     </table>
 </body>

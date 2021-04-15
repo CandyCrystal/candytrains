@@ -1,7 +1,6 @@
 <?php
-include "./config/global.php";
-include './config/connectNew.php';
-include './database/getPlatformData.php';
+include "./config/connect.php";
+include "./database/getPlatformData.php";
 $platform = $_GET["platform"];
 
 if ($platform == "") {
@@ -11,13 +10,13 @@ if ($platform == "") {
 $station = $_GET["station"];
 
 if ($station == "") {
-    $station = 217;
+    $station = "OSL";
 }
 
 $platformInfoQuery = new getPlatformData($databaseConnection);
 $platformInfo = $platformInfoQuery->getPlatformInfo($station, $platform);
-$platformLength = $platformInfo["platformLength"];
-$platformHasSectors = $platformInfo["platformHasSectors"];
+$platformLength = $platformInfo["platform_length"];
+$platformHasSectors = $platformInfo["platform_has_sectors"];
 // echo $platformLength;
 $side = $_GET["side"];
 
@@ -280,7 +279,7 @@ if ($side != "left") {
 
     function updateInfo() {
         $.ajax({
-            url: "https://trains.candycryst.com/queries/platformQuery.php?station=<?php echo $station ?>&platform=<?php echo $platform ?>&side=<?php echo $side ?>",
+            url: "./queries/platformQuery.php?station=<?php echo $station ?>&platform=<?php echo $platform ?>&side=<?php echo $side ?>",
             type: "POST",
             success: function(msg) {
                 // console.log(msg)

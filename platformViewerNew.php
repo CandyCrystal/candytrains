@@ -1,7 +1,7 @@
 <?php
 $thisLink = "https://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
 include "./config/session.php";
-include "./config/connectNew.php";
+include "./config/connect.php";
 include "./queries/platformsQuery.php";
 include "./database/getPlatformData.php";
 include "./database/getStationData.php";

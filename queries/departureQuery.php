@@ -1,6 +1,5 @@
 <?php
 header("Content-Type: application/xml");
-include "./config/global.php";
 include './config/connect.php';
 $platform = $_GET["platform"];
 $station = $_GET["station"];

@@ -1,5 +1,4 @@
 <?php
-include "./config/global.php";
 include '../config/connect.php';
 $platformName = substr($_GET["platformName"], 0, 2);
 

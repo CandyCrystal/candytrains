@@ -1,7 +1,7 @@
 <?php
 $thisLink = "https://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
 include "./config/session.php";
-include "./config/connectNew.php";
+include "./config/connect.php";
 include "./database/getPlatformData.php";
 include "./database/getStationData.php";
 $station = $_GET["station"];
@@ -15,7 +15,7 @@ if ($_GET["platforms"] != "") {
 } else {
     $i = 0;
     while ($platform = mysqli_fetch_array($platformsResult)) {
-        $platforms[$i] = $platform["platformNumber"];
+        $platforms[$i] = $platform["platform_number"];
         $i++;
     }
 }
@@ -27,10 +27,10 @@ if ($_GET["platforms"] != "") {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title><?php echo $stationInfo["stationName"] ?> Platforms - CandyTrains</title>
+    <title><?php echo $stationInfo["station_name"] ?> Platforms - CandyTrains</title>
     <meta property="og:type" content="website">
-    <meta property="og:title" content="Platform Viewer for <?php echo $stationInfo["stationName"] ?> - Candytrains" />
-    <meta property="og:description" content="Platform Viewer for <?php echo $stationInfo["stationName"] ?> on CandyTrains, a website of all things norwegian railways!" />
+    <meta property="og:title" content="Platform Viewer for <?php echo $stationInfo["station_name"] ?> - Candytrains" />
+    <meta property="og:description" content="Platform Viewer for <?php echo $stationInfo["station_name"] ?> on CandyTrains, a website of all things norwegian railways!" />
     <meta property="og:url" content="<?php echo $thisLink ?>" />
     <meta property="og:image" content="https://files.candycryst.com/assets/candyTransport/profile.png" />
     <meta name="theme-color" content="#629aa4">
@@ -56,19 +56,6 @@ if ($_GET["platforms"] != "") {
             }
         }
     }
-
-    // $i = 1;
-    // while ($platforms = mysqli_fetch_array($platformsResult)) {
-    //     if ($i % 2 == 0) {
-    //         echo '<div class="iframe-container"><iframe src="./platformDisplay.php?station=' . $station . '&platform=' . $platforms["platformNumber"] . '&side=right" title="Platform ' . $platforms["platformNumber"] . '"></iframe></div>';
-    //         echo '<div class="iframe-container-num"><iframe src="./platformNumber.php?platformName=' . $platforms["platformNumber"] . '" title="Platform ' . $platforms["platformNumber"] . ' Number"></iframe></div>';
-    //     } else {
-    //         echo '<div class="iframe-container-num"><iframe src="./platformNumber.php?platformName=' . $platforms["platformNumber"] . '" title="Platform ' . $platforms["platformNumber"] . ' Number"></iframe></div>';
-    //         echo '<div class="iframe-container"><iframe src="./platformDisplay.php?station=' . $station . '&platform=' . $platforms["platformNumber"] . '" title="Platform ' . $platforms["platformNumber"] . '"></iframe></div>';
-    //     }
-    //     $i++;
-    // }
-    // }
     ?>
 </body>
 

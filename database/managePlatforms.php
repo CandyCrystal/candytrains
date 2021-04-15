@@ -1,15 +1,7 @@
 <?php
 $pageRequiresLogin = true;
 include "../config/session.php";
-include "../config/connectNew.php";
-// include "../config/candyDirectory.php";
-// if (isset($_SESSION['login_user'])) {
-//     $currentUserName = $_SESSION['login_user'];
-//     $currentUserQuery = "SELECT * FROM users WHERE userName = '$currentUserName'";
-//     $currentUserResult = $candyDirectoryConnection->query($currentUserQuery);
-//     $currentUser = mysqli_fetch_array($currentUserResult);
-//     $userCanManage = $currentUser["userCanManageCandyTrains"];
-// };
+include "../config/connect.php";
 
 $action = $_REQUEST['action'];
 $returnUrl = $_REQUEST['returnUrl'];

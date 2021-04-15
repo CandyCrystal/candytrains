@@ -1,6 +1,6 @@
 <?php $pageRequiresLogin = false;
 include "./config/session.php";
-include "./config/connectNew.php";
+include "./config/connect.php";
 include "./config/candyDirectory.php";
 if (isset($_SESSION['login_user'])) {
     $currentUserName = $_SESSION['login_user'];

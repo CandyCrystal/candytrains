@@ -7,17 +7,17 @@ class getPlatformData
     {
         $this->databaseConnection = $conn;
     }
-    function getPlatforms($stationID)
+    function getPlatforms($stationRef)
     {
-        $stationID = mysqli_real_escape_string($this->databaseConnection, $stationID);
-        $query = "SELECT * FROM platforms WHERE platformStationID = $stationID ORDER BY platformNumber";
+        $stationRef = mysqli_real_escape_string($this->databaseConnection, $stationRef);
+        $query = "SELECT * FROM platforms WHERE platform_station = '$stationRef' ORDER BY platform_number";
         return $this->databaseConnection->query($query);
     }
-    function getPlatformInfo($stationID, $platformNumber)
+    function getPlatformInfo($stationRef, $platformNumber)
     {
-        $stationID = mysqli_real_escape_string($this->databaseConnection, $stationID);
+        $stationRef = mysqli_real_escape_string($this->databaseConnection, $stationRef);
         $platformNumber = mysqli_real_escape_string($this->databaseConnection, $platformNumber);
-        $query = "SELECT * FROM platforms WHERE platformStationID = $stationID AND platformNumber = $platformNumber LIMIT 1";
+        $query = "SELECT * FROM platforms WHERE platform_station = '$stationRef' AND platform_number = $platformNumber LIMIT 1";
         $result = $this->databaseConnection->query($query);
         while ($platform = mysqli_fetch_array($result)) {
             return $platform;

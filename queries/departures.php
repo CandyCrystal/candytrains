@@ -1,20 +1,20 @@
 <?php
-include "../config/connectNew.php";
+include "../config/connect.php";
 include "../database/getStationData.php";
-$stationID = $_GET["station"];
+$stationRef = $_GET["station"];
 $stationQuery = new getStationData($databaseConnection);
-$e = new departureQuery($stationID, $stationQuery);
+$e = new departureQuery($stationRef, $stationQuery);
 echo json_encode($e->departures());
 
 class departureQuery
 {
-    private $stationID;
+    private $stationRef;
     private $databaseConnection;
 
-    function __construct($stationID, $stationQuery)
+    function __construct($stationRef, $stationQuery)
     {
         $this->stationQuery = $stationQuery;
-        $this->stationID = $stationID;
+        $this->stationRef = $stationRef;
     }
 
     function departures()
@@ -46,7 +46,7 @@ class departureQuery
     function getData($numStopVisits, $stationQuery)
     {
         include "./situationQuery.php";
-        $stationRef = $stationQuery->getStationRef($this->stationID);
+        $stationRef = $this->stationRef;
         $e = new situationQuery($stationRef);
 
         $url = "https://siri.opm.jbv.no/jbv/sm/stop-monitoring.xml?MonitoringRef=" . $stationRef . "&MaximumStopVisits=" . $numStopVisits . "&ServiceFeatureRef=passengerTrain&StopVisitTypes=departures";

@@ -2,7 +2,7 @@
 $pageRequiresLogin = true;
 include "../config/session.php";
 include "../config/candyDirectory.php";
-include "../config/connectNew.php";
+include "../config/connect.php";
 if (isset($_SESSION['login_user'])) {
     $currentUserName = $_SESSION['login_user'];
     $currentUserQuery = "SELECT * FROM users WHERE userName = '$currentUserName'";
@@ -12,31 +12,31 @@ if (isset($_SESSION['login_user'])) {
 };
 
 $action = $_REQUEST['action'];
-$viaLineID = $_REQUEST['viaLineID'];
-$viaLineViaID = $_REQUEST['viaLineViaID'];
-$viaLineLineID = $_REQUEST['lineID'];
-$viaLineDestinationStationID = $_REQUEST['stationID'];
+$entryID = $_REQUEST['entryID'];
+$entryParent = $_REQUEST['entryParent'];
+$entryLine = $_REQUEST['lineID'];
+$entryDestination = $_REQUEST['stationRef'];
 $returnUrl = $_REQUEST['returnUrl'];
-$query = new viaLineQuery($databaseConnection, $returnUrl);
+$query = new nextToEntryQuery($databaseConnection, $returnUrl);
 switch ($action) {
     case ("insert"):
-        $query->insertViaLine($viaLineViaID, $viaLineLineID, $viaLineDestinationStationID);
+        $query->insertEntry($entryParent, $entryLine, $entryDestination);
         break;
     case ("update"):
-        if ($viaLineID != null) {
-            $query->updateViaLine($viaLineID, $viaLineLineID, $viaLineDestinationStationID);
+        if ($entryID != null) {
+            $query->updateEntry($entryID, $entryLine, $entryDestination);
         } else {
-            echo $viaLineID;
+            echo $entryID;
         }
         break;
     case ("delete"):
-        if ($viaLineID != null) {
-            $query->deleteViaLine($viaLineID);
+        if ($entryID != null) {
+            $query->deleteEntry($entryID);
         }
         break;
 }
 
-class viaLineQuery
+class nextToEntryQuery
 {
     private $databaseConnection;
     private $returnUrl;
@@ -46,14 +46,14 @@ class viaLineQuery
         $this->databaseConnection = $conn;
         $this->returnUrl = $returnUrl;
     }
-    function insertViaLine($viaLineViaID, $viaLineLineID, $viaLineDestinationStationID)
+    function insertEntry($entryParent, $entryLine, $entryDestination)
     {
         $databaseConnection = $this->databaseConnection;
         ob_start();
-        $viaLineViaID = mysqli_real_escape_string($databaseConnection, $viaLineViaID);
-        $viaLineLineID = mysqli_real_escape_string($databaseConnection, $viaLineLineID);
-        $viaLineDestinationStationID = mysqli_real_escape_string($databaseConnection, $viaLineDestinationStationID);
-        $sql = "INSERT INTO viaLines (viaLineViaID,viaLineLineID,viaLineDestinationStationID) VALUES ('$viaLineViaID','$viaLineLineID','$viaLineDestinationStationID')";
+        $entryParent = mysqli_real_escape_string($databaseConnection, $entryParent);
+        $entryLine = mysqli_real_escape_string($databaseConnection, $entryLine);
+        $entryDestination = mysqli_real_escape_string($databaseConnection, $entryDestination);
+        $sql = "INSERT INTO next_to_entries (entry_parent,entry_line,entry_destination) VALUES ('$entryParent','$entryLine','$entryDestination')";
         if ($databaseConnection->query($sql) === TRUE) {
             header('Location: ' . $this->returnUrl);
         } else {
@@ -61,16 +61,16 @@ class viaLineQuery
         }
         ob_end_flush();
     }
-    function updateViaLine($viaLineID, $viaLineLineID, $viaLineDestinationStationID)
+    function updateEntry($entryID, $entryLine, $entryDestination)
     {
         $databaseConnection = $this->databaseConnection;
         ob_start();
 
-        $viaLineID = mysqli_real_escape_string($databaseConnection, $viaLineID);
-        $viaLineLineID = mysqli_real_escape_string($databaseConnection, $viaLineLineID);
-        $viaLineDestinationStationID = mysqli_real_escape_string($databaseConnection, $viaLineDestinationStationID);
+        $entryID = mysqli_real_escape_string($databaseConnection, $entryID);
+        $entryLine = mysqli_real_escape_string($databaseConnection, $entryLine);
+        $entryDestination = mysqli_real_escape_string($databaseConnection, $entryDestination);
 
-        $sql = "UPDATE viaLines SET viaLineLineID='$viaLineLineID',viaLineDestinationStationID='$viaLineDestinationStationID' WHERE viaLineID = $viaLineID";
+        $sql = "UPDATE next_to_entries SET entry_line='$entryLine',entry_destination='$entryDestination' WHERE entry_id = $entryID";
         if ($databaseConnection->query($sql) === TRUE) {
             header('Location: ' . $this->returnUrl);
         } else {
@@ -78,13 +78,13 @@ class viaLineQuery
         }
         ob_end_flush();
     }
-    function deleteViaLine($viaLineID)
+    function deleteEntry($entryID)
     {
         $databaseConnection = $this->databaseConnection;
         ob_start();
 
-        $viaLineID = mysqli_real_escape_string($databaseConnection, $viaLineID);
-        $sql = "DELETE FROM viaLines WHERE viaLineID = $viaLineID";
+        $entryID = mysqli_real_escape_string($databaseConnection, $entryID);
+        $sql = "DELETE FROM next_to_entries WHERE entry_id = $entryID";
         if ($databaseConnection->query($sql) === TRUE) {
             header('Location: ' . $this->returnUrl);
         } else {
