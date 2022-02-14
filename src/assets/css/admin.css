@@ -1,0 +1,67 @@
+.colorStat {
+    width: 40px;
+}
+
+.float.colorStat {
+    font-size: 10px;
+    width: 30px;
+    height: 12px;
+    float: left;
+}
+
+
+
+.Monday,
+.Wednesday,
+.Friday,
+.Sunday{
+    background-color: #b33d5c;
+
+}
+
+.pt {
+    background-color: #7e1a34;
+}
+.gt {
+    background-color: #b1244a;
+}
+.at {
+    text-decoration: solid underline;
+}
+
+.statBox {
+    /* width: 1000px; */
+    height: 1000px;
+    display: block;
+    margin: auto;
+    text-align: center;
+}
+.dotArt.green,
+.colorStat.green {
+    background-color: #03782c;
+    color: white;
+}
+
+.dotArt.yellow,
+.colorStat.yellow {
+    background-color: #8cbe23;
+    color: black;
+}
+
+.dotArt.orange,
+.colorStat.orange {
+    background-color: #f1871d;
+    color: black;
+}
+
+.dotArt.red,
+.colorStat.red {
+    background-color: #a0001e;
+    color: white;
+}
+
+.dotArt.blue,
+.colorStat.blue {
+    background-color: #005aaf;
+    color: white;
+}

@@ -1,0 +1,169 @@
+.linebox {
+    height: 1.5vw;
+    padding-bottom: 0.2vw;
+    width: 5vw;
+    font-size: 1.5vw;
+    float: left;
+    color: #fff !important;
+    text-align: center;
+    border-collapse: collapse;
+    border-width: 4px;
+    border-style: solid;
+    margin: 3px;
+    font-weight: 900;
+    letter-spacing: -0.1vw;
+}
+
+.L1 {
+    background-color: #d72c82;
+    border-color: transparent;
+}
+
+.region {
+    background-color: #2b2b2c;
+    color: #fff !important;
+    border-color: transparent;
+    width: unset;
+}
+
+.F1,
+.F2 {
+    background-color: #767676;
+    border-color: transparent;
+}
+
+.F1x {
+    background-color: #fff;
+    color: #000 !important;
+    border-color: #767676;
+}
+
+.L1x {
+    background-color: #fff;
+    color: #000 !important;
+    border-color: #d72c82;
+}
+
+.L2 {
+    background-color: #64c8ff;
+    color: #000 !important;
+    border-color: transparent;
+}
+
+.L2x {
+    background-color: #fff;
+    color: #000 !important;
+    border-color: #64c8ff;
+}
+
+.L3 {
+    background-color: #8cbe22;
+    color: #000 !important;
+    border-color: transparent;
+}
+
+.L3x {
+    background-color: #fff;
+    color: #000 !important;
+    border-color: #8cbe22;
+}
+
+.R10,
+.R11 {
+    background-color: #a0001d;
+    color: #fff !important;
+    border-color: transparent;
+}
+
+.R10x,
+.R11x {
+    background-color: #fff;
+    color: #000 !important;
+    border-color: #a0001d;
+}
+
+.L12 {
+    background-color: #dc0000;
+    color: #fff !important;
+    border-color: transparent;
+}
+
+.L13 {
+    background-color: #f1871d;
+    color: #000 !important;
+    border-color: transparent;
+}
+
+.L13x {
+    background-color: #fff;
+    color: #000 !important;
+    border-color: #f1871d;
+}
+
+.L14 {
+    background-color: #fdc413;
+    color: #000 !important;
+    border-color: transparent;
+}
+
+.L14x {
+    background-color: #fff;
+    color: #000 !important;
+    border-color: #fdc413;
+}
+
+.R20 {
+    background-color: #873187;
+    color: #fff !important;
+    border-color: transparent;
+}
+
+.R20x {
+    background-color: #fff;
+    color: #000 !important;
+    border-color: #873187;
+}
+
+.L21 {
+    background-color: #8c69aa;
+    color: #fff !important;
+    border-color: transparent;
+}
+
+.L21x {
+    background-color: #fff;
+    color: #000 !important;
+    border-color: #8c69aa;
+}
+
+.L22 {
+    background-color: #005aaf;
+    color: #fff !important;
+    border-color: transparent;
+}
+
+.L22x {
+    background-color: #fff;
+    color: #000 !important;
+    border-color: #005aaf;
+}
+
+.R30 {
+    background-color: #03782c;
+    color: #fff !important;
+    border-color: transparent;
+}
+
+.R30x {
+    background-color: #fff;
+    color: #000 !important;
+    border-color: #03782c;
+}
+
+
+/* .dot {
+    width: 7px;
+    height: 7px;
+    border: 2px solid transparent;
+    border-radius: 100%;
+} */

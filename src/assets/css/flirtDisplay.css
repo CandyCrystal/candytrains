@@ -1,0 +1,256 @@
+.topBar {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 15.17vh;
+    background-color: #fcf7f7;
+    width: 100%;
+    border-bottom: 0.62vh solid #7d8182;
+}
+
+.rightPane {
+    position: absolute;
+    height: 84.3vh;
+    right: 0;
+    bottom: 0;
+    width: 31.3vw;
+    background-color: #b0b0b0;
+    border-left: 0.35vw solid #7d8182;
+    z-index: -1;
+}
+
+.stationConnections {
+    height: 9vh;
+    margin-top: -3vh;
+    margin-left: 0.5vw;
+}
+
+.firstStationDepartureText {
+    height: 6vh;
+}
+
+.doorDisplay {
+    display: flex;
+    justify-items: center;
+    justify-content: center;
+    align-items: center;
+    /* position: relative; */
+    /* height: 84.3vh; */
+    margin-top: 6vh;
+    right: 0;
+    bottom: 0;
+    height: 21vh;
+    width: 29vw;
+    z-index: 1;
+}
+
+.doorText {
+    display: flex;
+    justify-items: center;
+    justify-content: left;
+    align-items: flex-start;
+    position: absolute;
+    /* height: 84.3vh; */
+    font-size: 7vh;
+    line-height: 18vh;
+    height: 49vh;
+    width: 25vw;
+    font-weight: 500;
+    right: 0;
+    bottom: 0;
+}
+
+.trainNumber {
+    display: flex;
+    justify-items: center;
+    justify-content: right;
+    align-items: center;
+    position: absolute;
+    font-size: 3vh;
+    bottom: 0;
+    left: 0.3vw;
+}
+
+.stations {
+    position: absolute;
+    top: 15.78vh;
+    left: 1.64vw;
+    /* height: 83.73684210526316vh; */
+    width: 65.02627474505099vw;
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+.stationDot {
+    z-index: 4;
+    display: flex;
+    justify-items: center;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    width: 2.33vw;
+    height: 2.33vw;
+    background-color: #da0200;
+    border-radius: 100%;
+    border: 0.5vw solid #d8dcdb;
+}
+
+.stationTime {
+    font-size: 2.7vw;
+    font-weight: 500;
+    letter-spacing: 0.1vw;
+    margin-left: 1.8vw;
+}
+
+.dotColumn {
+    width: 5vw;
+    padding: 0;
+    margin: 0;
+}
+
+.timeColumn {
+    width: 9.1vw;
+    padding: 0;
+}
+
+.stationColumn {
+    padding: 0;
+}
+
+.firstStation {
+    height: 31.26vh;
+}
+
+.middleStation {
+    height: 9.57vh;
+}
+
+.routeLineBefore {
+    position: absolute;
+    bottom: 70vh;
+    left: 12.03vw;
+    border-left: 0.87vw solid #da0200;
+    height: 20vh;
+    z-index: -1;
+}
+
+.routeLineCenter {
+    position: absolute;
+    bottom: 27vh;
+    left: 12.03vw;
+    height: 43vh;
+    border-left: 0.87vw solid #da0200;
+}
+
+.routeLineAfter {
+    position: absolute;
+    bottom: 12.5vh;
+    left: 12.03vw;
+    border-left: 0.87vw dotted #da0200;
+    height: 12.5vh;
+    transform: scaleY(1.1);
+    transform-origin: center;
+}
+
+.routeLineAfter.full {
+    position: absolute;
+    bottom: 11.5vh;
+    left: 12.03vw;
+    border-left: 0.87vw solid #da0200;
+    height: 14.8vh;
+}
+
+.news {
+    display: flex;
+    justify-items: center;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    left: 1vw;
+    /* width: 100%; */
+    height: 100%;
+}
+
+.newsHeader {
+    font-size: 2.3vw;
+    margin-bottom: 2vh;
+    margin-top: 0;
+}
+
+.newsContent>b {
+    font-weight: 500;
+}
+
+.newsContent {
+    font-size: 1.7vw;
+}
+
+.newsSource {
+    display: flex;
+    justify-items: center;
+    justify-content: right;
+    align-items: center;
+    position: absolute;
+    font-size: 3vh;
+    bottom: 0;
+    right: 0.3vw;
+}
+
+.firstStationDepartureText {
+    font-size: 2vw;
+    margin-top: 3.5vh;
+    font-weight: 500;
+    word-spacing: 3vw;
+}
+
+.firstStationDepartureText.normalSpacing {
+    font-size: 1.8vw;
+    word-spacing: unset;
+}
+
+.firstStationName {
+    font-weight: 500;
+    font-size: 7vw;
+}
+
+.middleStationName {
+    font-weight: 400;
+    font-size: 4vw;
+}
+
+.lastStationName {
+    font-weight: 500;
+    font-size: 7vw;
+    margin-top: -6vh;
+}
+
+.lastStation>td {
+    height: 32vh;
+}
+
+.firstStation>td,
+.middleStation>td {
+    border-bottom: 0.44vh solid white;
+    z-index: 0;
+}
+
+.time {
+    display: flex;
+    justify-items: center;
+    align-items: center;
+    position: absolute;
+    right: 0.4vw;
+    top: 0;
+    /* width: 8vw; */
+    height: 15.26315789473684vh;
+    font-size: 5vh;
+    text-align: right;
+}
+
+body {
+    background-color: #dcdcdc;
+    font-family: roboto;
+    margin: 0;
+    height: 100vh;
+    overflow-y: hidden;
+}

@@ -1,0 +1,348 @@
+body {
+    /* --dark-color: #284a4d;
+    --medium-color: #377379;
+    --light-color: #5d9aa3;
+    
+    --dark-color: #77293e;
+    --medium-color: #c54365;
+    --light-color: #e25077; */
+}
+
+.yellow {
+    color: #ffd300;
+}
+
+.calendarTable {
+    width: 600px;
+}
+
+.red {
+    /* color: rgb(0, 0, 0); */
+    text-decoration: underline #ffd300;
+}
+
+.trainList.line {
+    margin: 0 auto;
+    text-align: center;
+}
+
+.firstRow {
+    border: 0
+}
+
+.operatorImage {
+    width: 35px;
+    /* width: 50px; */
+    /* display: block;
+    margin: auto; */
+}
+
+.dayEmojies {
+    /* float: left; */
+    /* width: 20px;
+    min-height: 1px; */
+    font-size: 16px;
+    text-align: center;
+    font-variant-numeric: tabular-nums;
+}
+
+.verified {
+    background-color: var(--medium-color);
+}
+
+.running {
+    background-color: #fff;
+}
+
+td.right {
+    text-align: right;
+}
+
+td.left {
+    text-align: left;
+}
+
+.stationList {
+    height: 25px;
+    max-width: 40vw !important;
+}
+
+.routeViewBar {
+    height: 95vh;
+    /* height: 5vh; */
+    position: fixed;
+    /* left: 0; */
+    bottom: 0;
+    overflow-y: auto;
+    background-color: #000000;
+    /* overflow-x: scroll; */
+    /* background: linear-gradient(90deg, #000000 0%, #00000000 5%, rgba(25,74,159,1) 55%); */
+}
+
+.stationListObject {
+    /* max-height: 25px; */
+    overflow-x: auto;
+    white-space: nowrap;
+    font-size: 15px;
+    cursor: pointer;
+}
+
+.stationListObject2 {
+    /* max-height: 25px; */
+    overflow-x: auto;
+    white-space: nowrap;
+    font-size: 15px;
+}
+
+.trainListTable {
+    max-width: 90vw;
+}
+
+.shortTableContainer {
+    display: flex;
+    align-content: stretch;
+    justify-content: space-around;
+    /* or inline-flex */
+}
+
+.addRow {
+    /* display: block; */
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    padding: 3px;
+    border: 5px solid var(--dark-color);
+    background-color: var(--dark-color);
+    width: auto;
+    text-align: center;
+}
+
+.progress {
+    /* display: block; */
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    height: 5px;
+    left: -5vw;
+    width: 90vw !important;
+    margin: auto;
+    /* border: 5px solid var(--dark-color); */
+    background-color: black;
+    width: auto;
+    text-align: center;
+}
+
+.progress>.bar {
+    /* display: block; */
+    z-index: 50;
+    height: 5px;
+    width: 0%;
+    /* border-left: 85vw solid whitesmoke; */
+    /* border: 5px solid var(--dark-color); */
+    background-color: rgb(0, 136, 23);
+    /* width: auto; */
+    text-align: center;
+}
+
+.vehicleBox {
+    display: flex;
+    flex-basis: auto;
+    height: 12px;
+    width: 100%;
+    justify-content: space-evenly;
+    /* min-width: 35px; */
+    /* float: left; */
+    /* color: #fff !important; */
+    text-align: center;
+    border-collapse: collapse;
+    border-width: 4px;
+    border-style: solid;
+    margin: 3px;
+    font-weight: 900;
+    letter-spacing: 1px;
+    font-size: 11px;
+    /* background-color: #2b2b2c;
+    border-color: #2b2b2c; */
+}
+
+.stopTableContainer {
+    display: flex;
+    width: 800px;
+    overflow-x: auto;
+    /* align-content: stretch; */
+    /* justify-content: space-around; */
+    /* or inline-flex */
+}
+
+.stopBox {
+    display: flex;
+    flex-basis: auto;
+    height: 30px;
+    /* width: 100%; */
+    justify-content: space-evenly;
+    align-items: center;
+    /* min-width: 35px; */
+    /* float: left; */
+    /* color: #fff !important; */
+    text-align: center;
+    border-collapse: collapse;
+    border-width: 4px;
+    border-style: solid;
+    margin: 3px;
+    font-weight: 900;
+    letter-spacing: 1px;
+    font-size: 11px;
+    /* background-color: #2b2b2c;
+    border-color: #2b2b2c; */
+}
+
+.shortTable {
+    width: 520px;
+}
+
+.missing {
+    color: white;
+    border-color: transparent;
+    background-color: transparent;
+}
+
+
+/* @media (max-width:960px) {
+    .vehicleBox {
+        height: 10%;
+        width: 17%;
+        min-width: unset;
+        border-width: unset;
+        font-size: 1.5em;
+        margin: 0.25%;
+    }
+    body {
+        width: 100%
+    }
+    table {
+        font-size: 3vw;
+    }
+} */
+
+.logTime {
+    width: 200px;
+}
+
+.logTrain {
+    width: 50px;
+}
+
+.logType {
+    width: 50px;
+}
+
+.logDescription {
+    width: 350px;
+}
+
+.popupCloseButton {
+    border: 5px solid red;
+    border-radius: 100%;
+    width: 20px;
+    height: 20px;
+    font-size: 30px;
+    position: absolute;
+    right: 0px;
+    top: 0px;
+    cursor: pointer;
+    color: white;
+    z-index: 200;
+    background-color: red;
+}
+
+.cross {
+    position: relative;
+    top: -9px;
+}
+
+.popup {
+    position: fixed;
+    z-index: 100;
+    color: #fff;
+    background-color: #111;
+    /* border: 2px solid #5d9aa3; */
+    border: 2px solid #c54365;
+    text-align: center;
+    overflow-y: auto;
+    max-height: 98vh;
+    overflow-x: hidden;
+    left: 100px;
+    top: 120px;
+}
+
+.flirtPopup {
+    position: fixed;
+    z-index: 100;
+    color: #fff;
+    background-color: #111;
+    /* border: 2px solid #5d9aa3; */
+    border: 2px solid #c54365;
+    text-align: center;
+    overflow-y: auto;
+    height: 289px;
+    width: 400px;
+    overflow-x: hidden;
+}
+
+.popupheader {
+    padding: 10px;
+    cursor: move;
+    font-size: 25px;
+    z-index: 10;
+    font-weight: 900;
+    border-width: 7px;
+    border-style: solid;
+    /* background-color: #284a4d;
+    color: #fff; */
+}
+
+.routeTable {
+    font-size: 20px;
+    border-collapse: collapse;
+    border: none;
+    margin: 5px;
+    margin-top: 5px;
+}
+
+.routeTable>tbody>tr {
+    background-color: #111;
+    border-bottom: unset;
+}
+
+td.left {
+    border-top: 1px solid white;
+}
+
+td.center {
+    border-top: 1px solid white;
+}
+
+td.right {
+    border-top: 1px solid white;
+}
+
+.shortTableA {
+    /* background-color: #284a4d; */
+    background-color: var(--dark-color);
+    border-bottom: unset;
+}
+
+.shortTableB {
+    /* background-color: #3d7a83; */
+    background-color: var(--medium-color);
+    border-bottom: unset;
+}
+
+.viewer {
+    border: none;
+    position: absolute;
+    height: 225px;
+    width: 400px;
+    left: 0;
+    bottom: 0;
+}

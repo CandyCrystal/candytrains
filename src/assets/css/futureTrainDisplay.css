@@ -1,0 +1,184 @@
+.topBar {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    background-color: #000000;
+    width: 100%;
+}
+
+.leftPane {
+    background-color: transparent;
+    position: relative;
+    width: 35%;
+    height: 80vh;
+    margin-top: 10vh;
+    display: block;
+    float: left;
+}
+
+.centerPane {
+    background-color: transparent;
+    color: white;
+    border-left: 0.2vw solid rgb(116, 116, 116);
+    border-right: 0.2vw solid rgb(116, 116, 116);
+    position: relative;
+    width: 42.5%;
+    height: 80vh;
+    margin-top: 10vh;
+    float: left;
+    display: block;
+}
+
+.rightPane {
+    background-color: transparent;
+    position: relative;
+    width: 7.5%;
+    height: 80vh;
+    margin-top: 10vh;
+    float: left;
+    display: block;
+}
+
+.bigTextTable {
+    /* height: 50vh; */
+    margin-left: 2vw;
+    margin-top: 4vh;
+}
+
+.wc {
+    color: green;
+    position: relative;
+    font-size: 15vh;
+    margin-top: 58vh;
+    margin-left: 2vw;
+    user-select: none;
+}
+
+.nextStationBig {
+    color: orangered;
+    font-size: 25vh;
+    padding-right: 2vw;
+}
+
+.nextStationTimeBig {
+    color: orangered;
+    font-size: 25vh;
+}
+
+.destinationBig {
+    font-size: 17vh;
+    padding-right: 2vw;
+}
+
+.destinationTimeBig {
+    font-size: 17vh;
+}
+
+.trainNumber {
+    display: flex;
+    justify-items: center;
+    justify-content: right;
+    align-items: center;
+    position: absolute;
+    font-size: 3vh;
+    bottom: 0;
+    left: 0.3vw;
+}
+
+.stations {
+    display: flex;
+    margin-top: 30vh;
+    height: 60vh;
+    justify-content: right;
+    margin-left: 3vw;
+    width: 28vw;
+}
+
+.stations>div {
+    /* border: 2px solid white; */
+    /* flex-grow: 1; */
+    width: 3.5vw;
+}
+
+.stationName {
+    height: 5vh;
+    width: 5vh;
+    transform: rotate(-45deg);
+    transform-origin: bottom center;
+    text-align: center;
+    margin-bottom: 6vh;
+    margin-left: 6vh;
+    color: white;
+    font-size: 7vh;
+}
+
+.routeLine>.horizontalLine {
+    width: 100%;
+    border-bottom: 1vh solid white;
+}
+
+.routeLine>.horizontalLine.first,
+.routeLine>.horizontalLine.next {
+    width: 100%;
+    margin-left: 50%;
+    border-bottom: 1vh solid white;
+}
+
+.routeLine>.horizontalLine.last {
+    width: 50%;
+    border-bottom: 1vh solid white;
+}
+
+.routeLine>.verticalLine {
+    position: relative;
+    height: 10vh;
+    margin-left: 50%;
+    margin-bottom: -5vh;
+    border-left: 1vh solid white;
+    /* margin-top: 23vh; */
+}
+
+.routeLine.dotted {
+    width: 80%;
+    margin-left: 10%;
+    border-bottom: 2vh dotted white;
+    margin-top: 10.4vh;
+}
+
+.stationTime {
+    color: white;
+    height: 10vh;
+    font-size: 6vh;
+    margin-top: 6vh;
+    text-align: center;
+}
+
+.stationBefore>.stationName {
+    color: rgb(116, 116, 116);
+}
+
+.stationNext>.stationName,
+.stationDestination>.stationName,
+.stationNext>.stationTime,
+.stationDestination>.stationTime {
+    color: orangered;
+}
+
+.time {
+    position: relative;
+    margin-top: 5vh;
+    margin-left: 2vw;
+    font-size: 17vh;
+    width: 100%;
+    text-align: right;
+    color: white;
+}
+
+body {
+    background-color: #dcdcdc;
+    font-family: roboto;
+    margin: 0;
+    height: 100vh;
+    overflow-y: hidden;
+}

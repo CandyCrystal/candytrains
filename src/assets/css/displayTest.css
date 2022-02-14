@@ -1,0 +1,336 @@
+.image {
+    height: inherit;
+    width: inherit;
+    padding: unset;
+    vertical-align: middle;
+}
+
+html {
+    scrollbar-width: none;
+}
+
+body.display {
+    background-color: #000;
+    margin: 0px;
+    border-collapse: collapse !important;
+    overflow-x: hidden;
+    cursor: auto;
+}
+
+tr {
+    padding-top: 0vw;
+    padding-bottom: 0vw;
+}
+
+td {
+    padding-top: 0vw;
+    padding-bottom: 0vw;
+}
+
+.platformDisplay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 56.25vw;
+    border-collapse: collapse;
+}
+
+body {
+    overflow: overlay;
+    color: white;
+    font-family: 'Roboto', sans-serif !important;
+}
+
+body::-webkit-scrollbar {
+    background-color: transparent;
+    width: 0vw;
+}
+
+a {
+    color: white;
+    text-decoration: none;
+}
+
+body.viewer {
+    background-color: #000;
+    margin: 0px;
+    padding: 1vw;
+}
+
+table {
+    font-size: 3vw;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    margin: auto;
+    margin-top: 0px;
+    border-collapse: collapse !important;
+    border-color: transparent !important;
+}
+
+.trainPreviewBar {
+    /* height: 100vh; */
+    height: 15vh;
+    position: fixed;
+    bottom: 0;
+    overflow-x: scroll;
+    background-color: #000000;
+    /* overflow-x: scroll; */
+    /* background: linear-gradient(90deg, #000000 0%, #00000000 5%, rgba(25,74,159,1) 55%); */
+}
+
+.trainPreviewBar::-webkit-scrollbar {
+    background-color: transparent;
+    width: 0vw;
+}
+
+.trainPreviewBarTrain {
+    width: max-content;
+    height: 7vw;
+    /* overflow-x: auto; */
+    position: relative;
+    bottom: 0;
+}
+
+.topBG {
+    position: fixed;
+    top: 0;
+    background-color: #000;
+    width: 100vw;
+    height: 12vw;
+    z-index: 1;
+}
+
+.trainPreviewBarCover {
+    background: linear-gradient(90deg, #000000 0%, #00000000 10%, #00000000 90%, #000000 100%);
+    width: 100vw;
+    height: 5vh;
+    position: absolute;
+    bottom: 0;
+    z-index: 1;
+}
+
+.trainPreview {
+    height: 2vw;
+}
+
+.trainImage {
+    position: fixed;
+    left: 4vw;
+    top: 2.5vw;
+    width: 6vw;
+    z-index: 2;
+}
+
+.previewTrainImg {
+    height: 12vh;
+}
+
+.previewTrainImgInt {
+    height: 12vh;
+}
+
+.departuresTopBar {
+    position: fixed;
+    top: 0;
+    width: 83vw;
+    height: 2vw;
+    left: 12vw;
+    background-color: #6d41a1;
+    z-index: 2;
+    /* background: linear-gradient(90deg, rgba(19,141,90,1) 45%, rgba(25,74,159,1) 55%); */
+}
+
+.everythingTopBar {
+    position: fixed;
+    top: 0;
+    width: 83vw;
+    height: 2vw;
+    left: 12vw;
+    background-color: #6d41a1;
+    z-index: 2;
+    /* background: linear-gradient(90deg, rgba(19,141,90,1) 45%, rgba(25,74,159,1) 55%); */
+}
+
+.localTime {
+    position: fixed;
+    right: 5vw;
+    top: 3vw;
+    font-size: 4vw;
+    font-weight: 300;
+    z-index: 2;
+}
+
+.departuresHeader {
+    position: fixed;
+    left: 12vw;
+    top: 3vw;
+    font-size: 4vw;
+    font-weight: 200;
+    z-index: 2;
+}
+
+.departuresHeader>b {
+    font-weight: 400;
+}
+
+.departureVia {
+    width: 35vw;
+}
+
+.departuresTable {
+    position: absolute;
+    left: 12vw;
+    top: 11vw;
+    width: 83vw;
+    max-height: 42.5vw;
+    font-size: 1vw;
+    text-align: left;
+}
+
+.firstRow {
+    height: 3.5vw;
+    vertical-align: top;
+    border-bottom: 0.1vw solid #565656;
+    position: sticky;
+    top: 9vw;
+    z-index: 2;
+}
+
+.column {
+    color: #ddd;
+    font-weight: 300;
+    font-size: 1vw;
+}
+
+.column.via {
+    width: 40%;
+}
+
+.column.arrivalTime,
+.column.departureTime {
+    width: 5vw;
+}
+
+.column.origin,
+.column.arrivalTime {
+    text-align: right;
+}
+
+.column.line {
+    width: 3vw;
+}
+
+.column.platform {
+    width: 2vw;
+    padding-right: 1vw;
+}
+
+.column.operator {
+    width: 4vw;
+}
+
+.cell {
+    font-size: 1.75vw;
+}
+
+.cell.origin {
+    text-align: right;
+}
+
+.cell.destination,
+.cell.origin {
+    font-size: 2vw;
+}
+
+.cell.line {
+    width: 4vw;
+}
+
+.cell.departureTime,
+.cell.arrivalTime {
+    font-size: 1.75vw;
+    width: 5.5vw;
+    border: none;
+    padding-top: 0vw;
+    padding-bottom: 0vw;
+    text-align: center;
+}
+
+.cell.departureNewTime {
+    font-size: 2vw;
+    color: #ffd300;
+}
+
+.cell.platform {
+    font-size: 2vw;
+    text-align: center;
+    width: 2vw;
+    padding-right: 1vw;
+}
+
+.departureImage {
+    height: 1.5vw;
+    display: block;
+    margin: auto;
+}
+
+.departureOperatorImage {
+    height: 2vw;
+    display: block;
+    margin: auto;
+}
+
+.warningYellow {
+    color: #ffd300;
+}
+
+.cell.everythingTest {
+    font-size: 1vw;
+    width: 5.5vw;
+    border: none;
+    padding-top: 0vw;
+    padding-bottom: 0vw;
+    text-align: center;
+    height: 1.5vw;
+}
+
+.borderRow {
+    border-bottom: 0.1vw solid #565656;
+}
+
+.borderRowTop {
+    border-top: 0.1vw solid #565656;
+}
+
+.cell.time.right {
+    text-align: right;
+}
+
+.cell.time {
+    font-size: 1.1vw;
+    width: 4vw;
+}
+
+.cell.dot {
+    max-height: 2vw;
+    font-size: 1.3vw;
+    width: 1vw;
+    text-align: center;
+}
+
+.cell.journeyStationNames {
+    font-size: 1vw;
+    width: 5.5vw;
+    border: none;
+    padding-top: 0vw;
+    padding-bottom: 0vw;
+    text-align: center;
+    /* max-height: 1.5vw; */
+}
+
+.journey.operatorImage {
+    max-height: 2.45625vw;
+    display: block;
+    margin: auto;
+}

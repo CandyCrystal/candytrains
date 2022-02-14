@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="78px" height="78px" viewBox="0 0 78 78" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 3.8.3 (29802) - http://www.bohemiancoding.com/sketch -->
+    <title>Icon/Large/Exclamation</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Symbols" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Icon/Large/Exclamation">
+            <g id="Icon/Large/Base" fill="#FFD300">
+                <circle id="Oval-1" cx="39" cy="39" r="39"></circle>
+            </g>
+            <path d="M36.6883156,48.9102669 L34,30.9289059 L34,16 L44,16 L44,30.9289059 L41.3112488,48.9102669 L36.6883156,48.9102669 Z M34,54 L44,54 L44,62 L34,62 L34,54 Z" id="Fill-1" fill="#000000"></path>
+        </g>
+    </g>
+</svg>

@@ -1,0 +1,66 @@
+body {
+    font-family: Roboto;
+    margin: 0;
+}
+
+h1 {
+    font-family: Roboto;
+}
+
+h4 {
+    color: white;
+}
+
+.map {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: -10;
+}
+
+.visited {
+    background-color: #0a0;
+    border: 5px solid #0a0;
+    border-radius: 100%;
+    position: relative;
+    margin-top: -2.5px;
+    margin-left: -2.5px;
+}
+
+.unvisited {
+    background-color: #f00;
+    border: 5px solid #f00;
+    border-radius: 100%;
+    position: relative;
+    margin-top: -2.5px;
+    margin-left: -2.5px;
+}
+
+.options {
+    position: absolute;
+    display: block;
+    top: 0;
+    right: 0;
+    margin: 5px;
+    padding: 5px;
+    background-color: black;
+    z-index: 12134;
+    text-align: center;
+    border-radius: 5px;
+}
+
+a.toggle {
+    color: white !important;
+}
+
+a {
+    font-family: Roboto;
+}
+
+.trainInput {
+    position: absolute;
+    top: 60px;
+    right: 20px;
+}

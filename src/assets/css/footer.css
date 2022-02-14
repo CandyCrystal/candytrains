@@ -1,0 +1,25 @@
+body {
+    position: relative;
+    min-height: 100vh;
+    padding-bottom: 240px;
+}
+
+.infoFooter {
+    width: fit-content;
+    display: block;
+    margin: auto;
+    height: 200px;
+}
+
+.footerParent {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    background-color: var(--dark-color);
+    border-top: 5px solid var(--medium-color);
+}
+
+.footerLink {
+    width: 200px;
+    float: left;
+}

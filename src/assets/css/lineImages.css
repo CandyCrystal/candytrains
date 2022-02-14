@@ -1,0 +1,828 @@
+body {
+    --R15-color: #fdd85f;
+    --L4-color: #95375B;
+    --R40-color: #4a051e;
+    --R41-color: #4a051e;
+    --L42-color: #850039;
+    --L5-color: #1fb6af;
+    --R50-color: #5504ca;
+    --L51-color: #466bca;
+    --L52-color: #1f83af;
+    --L6-color: #00bf4b;
+    --R60-color: #00301e;
+    --R61-color: #00301e;
+    --L62-color: #054a2d;
+    --L7-color: #a2349f;
+    --R70-color: #4d127c;
+    --L71-color: #622791;
+    --L8-color: #170eec;
+    --R80-color: #070085;
+}
+
+td.lineBoxFrame {
+    display: flex;
+    justify-items: center;
+    justify-content: center;
+    align-items: center;
+    
+}
+
+.linebox {
+    /* border: 15px solid transparent; */
+    /* width: 310px;
+    height: 130px; */
+    text-align: center;
+    display: flex;
+    justify-items: center;
+    justify-content: center;
+    align-items: center;
+    /* margin-bottom: 2px; */
+    /* border-color: #2b2b2c;
+    background-color: #2b2b2c; */
+    color: transparent;
+    float: left;
+    font-weight: 600;
+    font-size: 120px;
+    letter-spacing: -0.03vw;
+    font-family: roboto;
+}
+
+.linebox.trainList {
+    border-collapse: collapse;
+    border-width: 5px;
+    border-style: solid;
+    width: 50px;
+    height: 25px;
+    font-size: 18px;
+}
+
+.linebox.flirt {
+    display: flex;
+    justify-items: center;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    border-collapse: collapse;
+    border-width: 1vh 0.75vw;
+    border-style: solid;
+    width: 11.62vw;
+    left: 1.44vw;
+    top: 1.98vh;
+    height: 9.11vh;
+    font-size: 7vh;
+    /* margin-bottom: 0.01875vw; */
+}
+
+.linebox.future {
+    display: flex;
+    justify-items: center;
+    justify-content: center;
+    align-items: center;
+    border-collapse: collapse;
+    border-width: 1.4vh 1.4vh;
+    border-style: solid;
+    width: 3.3vw;
+    margin-top: 3.8vh;
+    height: 10vh;
+    font-size: 9vh;
+    margin-right: 0.5vw;
+}
+
+.linebox.small {
+    border: 0.2vw solid transparent;
+    height: 1.21875vw;
+    width: 2.90625vw;
+    font-size: 1.125vw;
+    margin-bottom: 0.01875vw;
+}
+
+.linebox.medium {
+    border: 0.3vw solid transparent;
+    height: 1.828125vw;
+    width: 4.359375vw;
+    font-size: 1.6875vw;
+    margin-bottom: 0.028125vw;
+}
+
+.linebox.medium2 {
+    /* border: 10px solid transparent; */
+    border-width: 10px;
+    border-style: solid;
+    height: 50px;
+    width: 130px;
+    font-size: 45px;
+    margin: 10px;
+    margin-bottom: 5px;
+    letter-spacing: -2px;
+}
+
+.dimmed {
+    opacity:0.4;
+}
+.dimmed2 {
+    opacity:0.7;
+}
+
+.linebox.left {
+    justify-content: left;
+}
+
+.linebox>.text {
+    font-stretch: ultra-expanded;
+    transform: scaleX(0.884015);
+    transform-origin: center;
+}
+
+.linebox.F1,
+.linebox.F2,
+.linebox.FLY1,
+.linebox.FLY2 {
+    border-color: #767676;
+    background-color: #767676;
+    color: #fff;
+}
+
+.linebox.F1x,
+.linebox.F2x {
+    border-color: #767676;
+    background-color: #fff;
+    color: #000;
+}
+
+.linebox.L1 {
+    border-color: #d72d82;
+    background-color: #d72d82;
+    color: #fff;
+}
+
+.linebox.L1x {
+    border-color: #d72d82;
+    background-color: #fff;
+    color: #000;
+}
+
+.linebox.R10,
+.linebox.R11 {
+    border-color: #a0001e;
+    background-color: #a0001e;
+    color: #fff;
+}
+
+.linebox.R10x,
+.linebox.R11x {
+    border-color: #a0001e;
+    background-color: #fff;
+    color: #000;
+}
+
+.linebox.L12 {
+    border-color: #dc0000;
+    background-color: #dc0000;
+    color: #fff;
+}
+
+.linebox.L12x {
+    border-color: #dc0000;
+    background-color: #fff;
+    color: #000;
+}
+
+.linebox.L13 {
+    border-color: #f0871e;
+    background-color: #f0871e;
+    color: #000;
+}
+
+.linebox.L13x {
+    border-color: #f0871e;
+    background-color: #fff;
+    color: #000;
+}
+
+.linebox.L14 {
+    border-color: #fcc414;
+    background-color: #fcc414;
+    color: #000;
+}
+
+.linebox.L14x {
+    border-color: #fcc414;
+    background-color: #fff;
+    color: #000;
+}
+
+.linebox.R15 {
+    border-color: var(--R15-color);
+    background-color: var(--R15-color);
+    color: #000;
+}
+
+.linebox.R15x {
+    border-color: var(--R15-color);
+    background-color: #fff;
+    color: #000;
+}
+
+.linebox.L2 {
+    border-color: #64c8ff;
+    background-color: #64c8ff;
+    color: #000;
+}
+
+.linebox.L2x {
+    border-color: #64c8ff;
+    background-color: #fff;
+    color: #000;
+}
+
+.linebox.R20 {
+    border-color: #873287;
+    background-color: #873287;
+    color: #fff;
+}
+
+.linebox.R20x {
+    border-color: #873287;
+    background-color: #fff;
+    color: #000;
+}
+
+.linebox.L21 {
+    border-color: #8c69aa;
+    background-color: #8c69aa;
+    color: #fff;
+}
+
+.linebox.L21x {
+    border-color: #8c69aa;
+    background-color: #fff;
+    color: #000;
+}
+
+.linebox.L22 {
+    border-color: #005aaf;
+    background-color: #005aaf;
+    color: #fff;
+}
+
+.linebox.L22x {
+    border-color: #005aaf;
+    background-color: #fff;
+    color: #000;
+}
+
+.linebox.L3 {
+    border-color: #8cbe23;
+    background-color: #8cbe23;
+    color: #000;
+}
+
+.linebox.L3x {
+    border-color: #8cbe23;
+    background-color: #fff;
+    color: #000;
+}
+
+.linebox.R30 {
+    border-color: #05782d;
+    background-color: #05782d;
+    color: #fff;
+}
+
+.linebox.R30x {
+    border-color: #05782d;
+    background-color: #fff;
+    color: #000;
+}
+
+.linebox.L4 {
+    border-color: var(--L4-color);
+    background-color: var(--L4-color);
+    color: #fff;
+}
+
+.linebox.L4x {
+    border-color: var(--L4-color);
+    background-color: #fff;
+    color: #000;
+}
+
+.linebox.R40 {
+    border-color: var(--R40-color);
+    background-color: var(--R40-color);
+    color: #fff;
+}
+
+.linebox.R40x {
+    border-color: var(--R40-color);
+    background-color: #fff;
+    color: #000;
+}
+
+.linebox.R41 {
+    border-color: var(--R41-color);
+    background-color: var(--R41-color);
+    color: #fff;
+}
+
+.linebox.R41x {
+    border-color: var(--R41-color);
+    background-color: #fff;
+    color: #000;
+}
+
+.linebox.L42 {
+    border-color: var(--L42-color);
+    background-color: var(--L42-color);
+    color: #fff;
+}
+
+.linebox.L42x {
+    border-color: var(--L42-color);
+    background-color: #fff;
+    color: #000;
+}
+
+.linebox.L5 {
+    border-color: var(--L5-color);
+    background-color: var(--L5-color);
+    color: #000;
+}
+
+.linebox.L5x {
+    border-color: var(--L5-color);
+    background-color: #fff;
+    color: #000;
+}
+
+.linebox.R50 {
+    border-color: var(--R50-color);
+    background-color: var(--R50-color);
+    color: #fff;
+}
+
+.linebox.R50x {
+    border-color: var(--R50-color);
+    background-color: #fff;
+    color: #000;
+}
+
+.linebox.L51 {
+    border-color: var(--L51-color);
+    background-color: var(--L51-color);
+    color: #fff;
+}
+
+.linebox.L51x {
+    border-color: var(--L51-color);
+    background-color: #fff;
+    color: #000;
+}
+
+.linebox.L52 {
+    border-color: var(--L52-color);
+    background-color: var(--L52-color);
+    color: #000;
+}
+
+.linebox.L52x {
+    border-color: var(--L52-color);
+    background-color: #fff;
+    color: #000;
+}
+
+.linebox.L6 {
+    border-color: var(--L6-color);
+    background-color: var(--L6-color);
+    color: #000;
+}
+
+.linebox.L6x {
+    border-color: var(--L6-color);
+    background-color: #fff;
+    color: #000;
+}
+
+.linebox.R60 {
+    border-color: var(--R60-color);
+    background-color: var(--R60-color);
+    color: #fff;
+}
+
+.linebox.R60x {
+    border-color: var(--R60-color);
+    background-color: #fff;
+    color: #000;
+}
+
+.linebox.R61 {
+    border-color: var(--R61-color);
+    background-color: var(--R61-color);
+    color: #fff;
+}
+
+.linebox.R61x {
+    border-color: var(--R61-color);
+    background-color: #fff;
+    color: #000;
+}
+
+.linebox.L62 {
+    border-color: var(--L62-color);
+    background-color: var(--L62-color);
+    color: #fff;
+}
+
+.linebox.L62x {
+    border-color: var(--L62-color);
+    background-color: #fff;
+    color: #000;
+}
+
+.linebox.L7,
+.linebox.L72 {
+    border-color: var(--L7-color);
+    background-color: var(--L7-color);
+    color: #fff;
+}
+
+.linebox.L7x,
+.linebox.L72x {
+    border-color: var(--L7-color);
+    background-color: #fff;
+    color: #000;
+}
+
+.linebox.R70 {
+    border-color: var(--R70-color);
+    background-color: var(--R70-color);
+    color: #fff;
+}
+
+.linebox.R70x {
+    border-color: var(--R70-color);
+    background-color: #fff;
+    color: #000;
+}
+
+.linebox.L71 {
+    border-color: var(--L71-color);
+    background-color: var(--L71-color);
+    color: #fff;
+}
+
+.linebox.L71x {
+    border-color: var(--L71-color);
+    background-color: #fff;
+    color: #000;
+}
+
+.linebox.L8 {
+    border-color: var(--L8-color);
+    background-color: var(--L8-color);
+    color: #fff;
+}
+
+.linebox.L8x {
+    border-color: var(--L8-color);
+    background-color: #fff;
+    color: #000;
+}
+
+.linebox.R80 {
+    border-color: var(--R80-color);
+    background-color: var(--R80-color);
+    color: #fff;
+}
+
+.linebox.R80x {
+    border-color: var(--R80-color);
+    background-color: #fff;
+    color: #000;
+}
+
+.linebox.cargo {
+    font-size: 1vw;
+    border-color: #fff;
+    background-color: #fff;
+    color: #000;
+}
+
+.F1,
+.F2,
+.FLY1,
+.FLY2 {
+    border-color: #767676;
+    background-color: #767676;
+    color: #fff;
+}
+
+.F1x,
+.F2x {
+    border-color: #767676;
+    background-color: #fff;
+    color: #000;
+}
+
+.L1 {
+    border-color: #d72d82;
+    background-color: #d72d82;
+    color: #fff;
+}
+
+.L1x {
+    border-color: #d72d82;
+    background-color: #fff;
+    color: #000;
+}
+
+.R10,
+.R11 {
+    border-color: #a0001e;
+    background-color: #a0001e;
+    color: #fff;
+}
+
+.R10x,
+.R11x {
+    border-color: #a0001e;
+    background-color: #fff;
+    color: #000;
+}
+
+.L12 {
+    border-color: #dc0000;
+    background-color: #dc0000;
+    color: #fff;
+}
+
+.L12x {
+    border-color: #dc0000;
+    background-color: #fff;
+    color: #000;
+}
+
+.L13 {
+    border-color: #f0871e;
+    background-color: #f0871e;
+    color: #000;
+}
+
+.L13x {
+    border-color: #f0871e;
+    background-color: #fff;
+    color: #000;
+}
+
+.L14 {
+    border-color: #fcc414;
+    background-color: #fcc414;
+    color: #000;
+}
+
+.L14x {
+    border-color: #fcc414;
+    background-color: #fff;
+    color: #000;
+}
+
+.L2 {
+    border-color: #64c8ff;
+    background-color: #64c8ff;
+    color: #000;
+}
+
+.L2x {
+    border-color: #64c8ff;
+    background-color: #fff;
+    color: #000;
+}
+
+.R20 {
+    border-color: #873287;
+    background-color: #873287;
+    color: #fff;
+}
+
+.R20x {
+    border-color: #873287;
+    background-color: #fff;
+    color: #000;
+}
+
+.L21 {
+    border-color: #8c69aa;
+    background-color: #8c69aa;
+    color: #fff;
+}
+
+.L21x {
+    border-color: #8c69aa;
+    background-color: #fff;
+    color: #000;
+}
+
+.L22 {
+    border-color: #005aaf;
+    background-color: #005aaf;
+    color: #fff;
+}
+
+.L22x {
+    border-color: #005aaf;
+    background-color: #fff;
+    color: #000;
+}
+
+.L3 {
+    border-color: #8cbe23;
+    background-color: #8cbe23;
+    color: #000;
+}
+
+.L3x {
+    border-color: #8cbe23;
+    background-color: #fff;
+    color: #000;
+}
+
+.R30 {
+    border-color: #05782d;
+    background-color: #05782d;
+    color: #fff;
+}
+
+.R30x {
+    border-color: #05782d;
+    background-color: #fff;
+    color: #000;
+}
+
+.FLY {
+    border-color: #767676;
+    border-style: dashed !important;
+    background-color: #000;
+    color: #fff;
+}
+
+.VY,
+.VYT,
+.VYG,
+.FLY,
+.SJ,
+.SJN,
+.GAG,
+.GC,
+.GR,
+.RCT,
+.CN,
+.BLS,
+.TM,
+.HER,
+.TÅB,
+.ONR,
+.MTA,
+.NA {
+    border-style: dashed !important;
+    background-color: #000;
+    color: #fff;
+}
+
+.VY,
+.VYT,
+.VYG {
+    border-color: #1D7D72;
+}
+
+.SJ {
+    border-color: #00a639;
+}
+
+.NA {
+    border-color: #000;
+}
+
+.SJN {
+    border-color: #e24152;
+}
+
+.GAG {
+    border-color: #2e3046;
+}
+
+.GC {
+    border-color: #275937;
+}
+
+.GR,
+.RCT {
+    border-color: #c62127;
+}
+
+.CN {
+    border-color: #fcb315;
+}
+
+.BLS {
+    border-color: #0bda5e;
+}
+
+.TM {
+    border-color: #002169;
+}
+
+.HER {
+    border-color: #fab900;
+}
+
+.TÅB {
+    border-color: #da251c;
+}
+
+.ONR {
+    border-color: #ec3822;
+}
+
+.MTA {
+    border-color: #0095da;
+}
+
+
+/* .L4,
+.R40,
+.R41,
+.L42 {
+    border-color: #1D7D72;
+    background-color: #1D7D72;
+    color: #fff;
+}
+
+.L4x,
+.R40x,
+.R41x,
+.L42x {
+    border-color: #1D7D72;
+    background-color: #fff;
+    color: #000;
+}
+
+.L5,
+.R50,
+.L51,
+.L52 {
+    border-color: #2e3046;
+    background-color: #2e3046;
+    color: #fff;
+}
+
+.L5x,
+.R50x,
+.L51x,
+.L52x {
+    border-color: #2e3046;
+    background-color: #fff;
+    color: #000;
+}
+
+.L6,
+.R60,
+.R61,
+.L62,
+.R70,
+.L71,
+.L72 {
+    border-color: #e24152;
+    background-color: #e24152;
+    color: #fff;
+}
+
+.L6x,
+.R60x,
+.R61x,
+.L62x,
+.R70x,
+.L71x,
+.L72x {
+    border-color: #e24152;
+    background-color: #fff;
+    color: #000;
+}
+
+.L80x {
+    border-color: #2b2b2c;
+    background-color: #fff;
+    color: #000;
+} */
+
+.cargo {
+    font-size: 1vw;
+    border-color: #fff;
+    background-color: #fff;
+    color: #000;
+}
+
+.CT {
+    border-color: #c54365;
+    background-color: #c54365;
+    color: #e5dfce;
+}

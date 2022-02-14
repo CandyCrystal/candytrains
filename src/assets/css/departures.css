@@ -1,0 +1,72 @@
+table {
+    font-size: 30px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    margin: auto;
+    margin-top: 5px;
+}
+
+.columnLine {
+    font-size: 30px;
+    width: fit-content;
+    padding-left: 10px;
+    padding-right: 0;
+    position: relative;
+}
+.columnLineImage {
+    display: block;
+    height: 40px;
+    /* width: 100%; */
+    /* position: absolute; */
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+}
+
+.columnDepartureTime {
+    width: 120px;
+}
+
+th {
+    text-align: center;
+    padding: 10px !important;
+
+}
+
+td {
+    font-family: monospace !important;
+    padding: 10px !important;
+}
+
+.departureContent {
+    font-size: 30px !important;
+}
+
+.columnPlatform {
+    text-align: center !important;
+}
+
+.columnRemark {
+    /* width: 20vw; */
+    font-size: 15px !important;
+}
+
+.columnCompany {
+    font-size: 30px;
+    /* width: 50px; */
+    padding-left: 0;
+    padding-right: 0;
+    position: relative;
+}
+.columnCompanyImage {
+    display: block;
+    height: 50px;
+    /* position: absolute; */
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+}

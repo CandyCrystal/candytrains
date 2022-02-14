@@ -1,0 +1,157 @@
+.image {
+    height: inherit;
+    width: inherit;
+    padding: unset;
+    vertical-align: middle;
+}
+
+html {
+    scrollbar-width: none;
+}
+
+tr {
+    padding-top: 0vw;
+    padding-bottom: 0vw;
+}
+
+td {
+    padding-top: 0vw;
+    padding-bottom: 0vw;
+}
+
+.platformDisplay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 56.25vw;
+    border-collapse: collapse;
+}
+
+body::-webkit-scrollbar {
+    background-color: transparent;
+    width: 0vw;
+}
+
+a {
+    color: white;
+    text-decoration: none;
+}
+
+body {
+    font-family: roboto;
+    background-color: black;
+    color: white;
+    overflow: hidden;
+}
+
+table {
+    font-size: 3vw;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    margin: auto;
+    margin-top: 0px;
+    border-collapse: collapse !important;
+    border-color: transparent !important;
+}
+
+.localTime {
+    position: fixed;
+    left: 25vw;
+    bottom: 20vw;
+    font-size: 4vw;
+    font-weight: 300;
+    z-index: 2;
+}
+
+.platforms {
+    position: absolute;
+    top: 100vh;
+}
+
+.departuresTable {
+    position: absolute;
+    left: 12vw;
+    bottom: 0;
+    width: 83vw;
+    font-size: 3vw;
+    text-align: left;
+}
+
+.firstRow {
+    height: 3.5vw;
+    vertical-align: top;
+    border-bottom: 0.1vw solid #565656;
+    /* position: sticky; */
+    /* top: 9vw; */
+    z-index: 2;
+}
+
+.column {
+    color: #ddd;
+    font-weight: 300;
+    font-size: 2vw;
+}
+
+.column.time {
+    width: 8vw;
+    text-align: center;
+}
+
+.column.origin {
+    text-align: right;
+}
+
+.column.line {
+    width: 3vw;
+}
+
+.column.operator {
+    width: 4vw;
+}
+
+.cell {
+    font-size: 3.75vw;
+}
+
+.cell.origin {
+    text-align: right;
+}
+
+.cell.destination,
+.cell.origin {
+    font-size: 3vw;
+}
+
+.cell.line {
+    width: 4vw;
+}
+
+.cell.time {
+    font-size: 1.75vw;
+    width: 5.5vw;
+    border: none;
+    padding-top: 0vw;
+    padding-bottom: 0vw;
+    text-align: center;
+}
+
+.departureImage {
+    height: 1.5vw;
+    display: block;
+    margin: auto;
+}
+
+.departureOperatorImage {
+    height: 2vw;
+    display: block;
+    margin: auto;
+}
+
+.borderRow {
+    border-bottom: 0.1vw solid #565656;
+}
+
+.borderRowTop {
+    border-top: 0.1vw solid #565656;
+}

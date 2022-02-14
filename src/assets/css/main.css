@@ -1,0 +1,351 @@
+body {
+    min-height: 100vh !important;
+    /* blue */
+    --dark-color: #284a4d;
+    --medium-color: #377379;
+    --light-color: #5d9aa3;
+    /* Green */
+    --dark-color: #084418;
+    --medium-color: #09581e;
+    --light-color: #087726;
+    /* pink */
+    --dark-color: #77293e;
+    --medium-color: #b33d5c;
+    --light-color: #e25077;
+}
+
+
+/* roboto-100 - latin */
+
+@font-face {
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 100;
+    src: local(''), url('../fonts/roboto-v29-latin-100.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
+    url('../fonts/roboto-v29-latin-100.woff') format('woff');
+    /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+}
+
+
+/* roboto-300 - latin */
+
+@font-face {
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 300;
+    src: local(''), url('../fonts/roboto-v29-latin-300.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
+    url('../fonts/roboto-v29-latin-300.woff') format('woff');
+    /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+}
+
+
+/* roboto-regular - latin */
+
+@font-face {
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 400;
+    src: local(''), url('../fonts/roboto-v29-latin-regular.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
+    url('../fonts/roboto-v29-latin-regular.woff') format('woff');
+    /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+}
+
+
+/* roboto-500 - latin */
+
+@font-face {
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 500;
+    src: local(''), url('../fonts/roboto-v29-latin-500.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
+    url('../fonts/roboto-v29-latin-500.woff') format('woff');
+    /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+}
+
+
+/* roboto-700 - latin */
+
+@font-face {
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 700;
+    src: local(''), url('../fonts/roboto-v29-latin-700.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
+    url('../fonts/roboto-v29-latin-700.woff') format('woff');
+    /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+}
+
+
+/* roboto-900 - latin */
+
+@font-face {
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 900;
+    src: local(''), url('../fonts/roboto-v29-latin-900.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
+    url('../fonts/roboto-v29-latin-900.woff') format('woff');
+    /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+}
+
+table {
+    font-size: 20px;
+    border-collapse: collapse;
+    border: 6px solid var(--light-color);
+    margin: auto;
+    margin-top: 5px;
+}
+
+th {
+    text-align: center;
+    padding: 2px 8px;
+    font-weight: 400;
+    font-family: 'Roboto', sans-serif;
+}
+
+.viaTable {
+    float: left;
+    width: 25%;
+}
+
+.delete {
+    float: left;
+}
+
+.stationLinks {
+    max-width: 500px;
+}
+
+.platformNumberEdit {
+    width: 25%;
+    float: left;
+}
+
+.rightHeader {
+    text-align: right;
+}
+
+.leftHeader {
+    text-align: left;
+}
+
+.stationCode {
+    text-align: right;
+    font-family: monospace;
+}
+
+tr {
+    background-color: var(--dark-color);
+    border-bottom: 2px solid var(--light-color);
+}
+
+
+/* tr:nth-child(even) {
+    background-color: #3d7a83;
+} */
+
+td {
+    padding: 1px 8px 1px 8px;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 300;
+}
+
+body {
+    width: 100%;
+    padding-left: 0;
+    margin: 0;
+    font-family: 'Roboto', sans-serif;
+    /* font-weight: 900; */
+    background-color: #000;
+    color: #E5DFCE;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    text-align: center;
+    background-color: transparent;
+    border: none;
+    font-weight: 900;
+    border-bottom: 6px solid #e5dfce;
+    color: #e5dfce;
+    border-radius: 20%;
+}
+
+a {
+    text-decoration-color: transparent;
+    color: #e5dfce;
+}
+
+.listLinesServed {
+    width: 500px;
+}
+
+.linebox2 {
+    height: 11px;
+    padding-bottom: 12px;
+    width: 58px;
+    float: left;
+    color: #fff !important;
+    text-align: center;
+    border-collapse: collapse;
+    border-width: 4px;
+    border-style: solid;
+    margin: 3px;
+    font-weight: 900;
+    letter-spacing: 1px;
+}
+
+.L1 {
+    background-color: #d72c82;
+    border-color: transparent;
+}
+
+.region {
+    background-color: #2b2b2c;
+    color: #fff !important;
+    border-color: transparent;
+    width: unset;
+}
+
+.F1,
+.F2 {
+    background-color: #767676;
+    border-color: transparent;
+}
+
+.F1x {
+    background-color: #fff;
+    color: #000 !important;
+    border-color: #767676;
+}
+
+.L1x {
+    background-color: #fff;
+    color: #000 !important;
+    border-color: #d72c82;
+}
+
+.L2 {
+    background-color: #64c8ff;
+    color: #000 !important;
+    border-color: transparent;
+}
+
+.L2x {
+    background-color: #fff;
+    color: #000 !important;
+    border-color: #64c8ff;
+}
+
+.L3 {
+    background-color: #8cbe22;
+    color: #000 !important;
+    border-color: transparent;
+}
+
+.L3x {
+    background-color: #fff;
+    color: #000 !important;
+    border-color: #8cbe22;
+}
+
+.R10,
+.R11 {
+    background-color: #a0001d;
+    color: #fff !important;
+    border-color: transparent;
+}
+
+.R10x,
+.R11x {
+    background-color: #fff;
+    color: #000 !important;
+    border-color: #a0001d;
+}
+
+.L12 {
+    background-color: #dc0000;
+    color: #fff !important;
+    border-color: transparent;
+}
+
+.L13 {
+    background-color: #f1871d;
+    color: #000 !important;
+    border-color: transparent;
+}
+
+.L13x {
+    background-color: #fff;
+    color: #000 !important;
+    border-color: #f1871d;
+}
+
+.L14 {
+    background-color: #fdc413;
+    color: #000 !important;
+    border-color: transparent;
+}
+
+.L14x {
+    background-color: #fff;
+    color: #000 !important;
+    border-color: #fdc413;
+}
+
+.R20 {
+    background-color: #873187;
+    color: #fff !important;
+    border-color: transparent;
+}
+
+.R20x {
+    background-color: #fff;
+    color: #000 !important;
+    border-color: #873187;
+}
+
+.L21 {
+    background-color: #8c69aa;
+    color: #fff !important;
+    border-color: transparent;
+}
+
+.L21x {
+    background-color: #fff;
+    color: #000 !important;
+    border-color: #8c69aa;
+}
+
+.L22 {
+    background-color: #005aaf;
+    color: #fff !important;
+    border-color: transparent;
+}
+
+.L22x {
+    background-color: #fff;
+    color: #000 !important;
+    border-color: #005aaf;
+}
+
+.R30 {
+    background-color: #03782c;
+    color: #fff !important;
+    border-color: transparent;
+}
+
+.R30x {
+    background-color: #fff;
+    color: #000 !important;
+    border-color: #03782c;
+}
+
+.dot {
+    width: 7px;
+    height: 7px;
+    border: 2px solid transparent;
+    border-radius: 100%;
+}
