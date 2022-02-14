@@ -24,6 +24,7 @@ class getStationData
     }
     function getStationLines($input)
     {
+        $input = mysqli_real_escape_string($this->databaseConnection, $input);
         $databaseConnection = $this->databaseConnection;
         $sql = "SELECT stations.station_name,lines_served.line_name AS 'line_name',lines_served.line_id, lines_served.line_shorthand AS 'line_code', lines_on_station.line_station_id AS 'entry_id',line_station_id FROM lines_on_station INNER JOIN stations ON lines_on_station.station_ref = stations.station_ref INNER JOIN lines_served ON lines_on_station.line_id = lines_served.line_id WHERE lines_on_station.station_ref = '$input' ORDER BY lines_served.line_shorthand";
         return $databaseConnection->query($sql);
@@ -90,6 +91,7 @@ class getStationData
     function getStationName($stationRef)
     {
         $databaseConnection = $this->databaseConnection;
+        $stationRef = mysqli_real_escape_string($this->databaseConnection, $stationRef);
         $query = "SELECT station_name FROM stations WHERE station_ref = '$stationRef'";
         $result = $databaseConnection->query($query);
         $row = mysqli_fetch_all($result);
@@ -98,6 +100,7 @@ class getStationData
     function getStationRefFromName($stationName)
     {
         $databaseConnection = $this->databaseConnection;
+        $stationName = mysqli_real_escape_string($this->databaseConnection, $stationName);
         $query = "SELECT station_ref FROM stations WHERE station_name = '$stationName'";
         $result = $databaseConnection->query($query);
         $row = mysqli_fetch_all($result);

@@ -90,22 +90,22 @@ class trainQuery
             $expectedDep = "NULL";
             $actualDep = "NULL";
             if ($stops[$j]->arrivalPlannedTime != "") {
-                $plannedArr = "'" . date_format(new DateTime($stops[$j]->arrivalPlannedTime), 'Y-m-d H:i:s') . "'";
+                $plannedArr = "'" . date_format(new DateTime(mysqli_real_escape_string($this->databaseConnection, $stops[$j]->arrivalPlannedTime)), 'Y-m-d H:i:s') . "'";
             }
             if ($stops[$j]->arrivalExpectedTime != "") {
-                $expectedArr = "'" . date_format(new DateTime($stops[$j]->arrivalExpectedTime), 'Y-m-d H:i:s') . "'";
+                $expectedArr = "'" . date_format(new DateTime(mysqli_real_escape_string($this->databaseConnection, $stops[$j]->arrivalExpectedTime)), 'Y-m-d H:i:s') . "'";
             }
             if ($stops[$j]->arrivalActualTime != "") {
-                $actualArr =  "'" . date_format(new DateTime($stops[$j]->arrivalActualTime), 'Y-m-d H:i:s') . "'";
+                $actualArr =  "'" . date_format(new DateTime(mysqli_real_escape_string($this->databaseConnection, $stops[$j]->arrivalActualTime)), 'Y-m-d H:i:s') . "'";
             }
             if ($stops[$j]->departurePlannedTime != "") {
-                $plannedDep =  "'" . date_format(new DateTime($stops[$j]->departurePlannedTime), 'Y-m-d H:i:s') . "'";
+                $plannedDep =  "'" . date_format(new DateTime(mysqli_real_escape_string($this->databaseConnection, $stops[$j]->departurePlannedTime)), 'Y-m-d H:i:s') . "'";
             }
             if ($stops[$j]->departureExpectedTime != "") {
-                $expectedDep =  "'" . date_format(new DateTime($stops[$j]->departureExpectedTime), 'Y-m-d H:i:s') . "'";
+                $expectedDep =  "'" . date_format(new DateTime(mysqli_real_escape_string($this->databaseConnection, $stops[$j]->departureExpectedTime)), 'Y-m-d H:i:s') . "'";
             }
             if ($stops[$j]->departureActualTime != "") {
-                $actualDep =  "'" . date_format(new DateTime($stops[$j]->departureActualTime), 'Y-m-d H:i:s') . "'";
+                $actualDep =  "'" . date_format(new DateTime(mysqli_real_escape_string($this->databaseConnection, $stops[$j]->departureActualTime)), 'Y-m-d H:i:s') . "'";
             }
 
 
@@ -159,8 +159,8 @@ class trainQuery
 
     function updateDataOnDate($train_number, $date)
     {
-        $urlDate = $date;
-
+        $urlDate = mysqli_real_escape_string($this->databaseConnection, $date);
+        $train_number = mysqli_real_escape_string($this->databaseConnection, $train_number);
         $check_query = "SELECT train_number FROM routes WHERE train_number = '$train_number' AND route_date = '$urlDate' LIMIT 1";
 
         $check = $this->databaseConnection->query($check_query);
@@ -183,9 +183,17 @@ class trainQuery
                 $numstops = count($journeyData[0]->stops)-1;
                 $startDate = date_format(new DateTime($journeyData[0]->stops[0]->departureActualTime ?: $journeyData[0]->stops[0]->departureExpectedTime ?: $journeyData[0]->stops[0]->departurePlannedTime ?: $journeyData[0]->stops[0]->arrivalActualTime ?: $journeyData[0]->stops[0]->arrivalExpectedTime ?: $journeyData[0]->stops[0]->arrivalPlannedTime), 'Y-m-d H:i:s');
                 $endDate = date_format(new DateTime($journeyData[0]->stops[$numstops]->arrivalActualTime ?: $journeyData[0]->stops[$numstops]->arrivalExpectedTime ?: $journeyData[0]->stops[$numstops]->arrivalPlannedTime ?: $journeyData[0]->stops[$numstops]->departureActualTime ?: $journeyData[0]->stops[$numstops]->departureExpectedTime ?: $journeyData[0]->stops[$numstops]->departurePlannedTime), 'Y-m-d H:i:s');
+
+
+                $train_number = mysqli_real_escape_string($this->databaseConnection, $train_number);
+                $line = mysqli_real_escape_string($this->databaseConnection, $line);
+                $operator = mysqli_real_escape_string($this->databaseConnection, $operator);
+                $startDate = mysqli_real_escape_string($this->databaseConnection, $startDate);
+                $endDate = mysqli_real_escape_string($this->databaseConnection, $endDate);
+
                 $train_num = "INSERT INTO train_numbers (train_number) VALUES  ('" . $train_number . "')";
                 $this->databaseConnection->query($train_num);
-                $sql = "INSERT INTO routes (train_number,route_line,route_operator,route_status,route_date,route_start,route_end) VALUES ('$train_number',$line,$operator,1,'$urlDate','$startDate','$endDate');";
+                $sql = "INSERT INTO routes (train_number,route_line,route_operator,route_date,route_start,route_end) VALUES ('$train_number',$line,$operator,'$urlDate','$startDate','$endDate');";
                 if ($this->databaseConnection->query($sql) === TRUE) {
                     $this->status = 1;
                 } else {
@@ -221,6 +229,12 @@ class trainQuery
                 $numstops = count($journeyData[0]->stops)-1;
                 $startDate = date_format(new DateTime($journeyData[0]->stops[0]->departureActualTime ?: $journeyData[0]->stops[0]->departureExpectedTime ?: $journeyData[0]->stops[0]->departurePlannedTime ?: $journeyData[0]->stops[0]->arrivalActualTime ?: $journeyData[0]->stops[0]->arrivalExpectedTime ?: $journeyData[0]->stops[0]->arrivalPlannedTime), 'Y-m-d H:i:s');
                 $endDate = date_format(new DateTime($journeyData[0]->stops[$numstops]->arrivalActualTime ?: $journeyData[0]->stops[$numstops]->arrivalExpectedTime ?: $journeyData[0]->stops[$numstops]->arrivalPlannedTime ?: $journeyData[0]->stops[$numstops]->departureActualTime ?: $journeyData[0]->stops[$numstops]->departureExpectedTime ?: $journeyData[0]->stops[$numstops]->departurePlannedTime), 'Y-m-d H:i:s');
+
+                $train_number = mysqli_real_escape_string($this->databaseConnection, $train_number);
+                $line = mysqli_real_escape_string($this->databaseConnection, $line);
+                $operator = mysqli_real_escape_string($this->databaseConnection, $operator);
+                $startDate = mysqli_real_escape_string($this->databaseConnection, $startDate);
+                $endDate = mysqli_real_escape_string($this->databaseConnection, $endDate);
 
 
                 $train_number = mysqli_real_escape_string($this->databaseConnection, $train_number);

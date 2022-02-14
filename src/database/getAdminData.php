@@ -14,6 +14,8 @@ class getAdminData
     }
     function getSingleDateStats($date, $date2)
     {
+        $date = mysqli_real_escape_string($this->databaseConnection, $date);
+        $date2 = mysqli_real_escape_string($this->databaseConnection, $date2);
         $results = [];
         $query = "SELECT route_date, COUNT(*) AS 'num' FROM routes WHERE route_date >= '$date' AND route_date <= '$date2' GROUP BY route_date ORDER BY route_date ASC;";
         $results["total"] = $this->databaseConnection->query($query);

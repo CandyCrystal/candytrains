@@ -6,6 +6,9 @@ $userCanManageStations = 0;
 $userCanManageTrains = 0;
 if (isset($_SESSION['login_user'])) {
    $currentUserName = $_SESSION['login_user'];
+   
+	$currentUserName = mysqli_real_escape_string($this->databaseConnection, $currentUserName);
+
    $currentUserQuery = "SELECT * FROM users WHERE userName = '$currentUserName'";
    $currentUserResult = $candyDirectoryConnection->query($currentUserQuery);
    $currentUser = mysqli_fetch_array($currentUserResult);

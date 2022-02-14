@@ -40,7 +40,6 @@ class lineQuery
         $databaseConnection = $this->databaseConnection;
         ob_start();
 
-        // $lineID = mysqli_real_escape_string($databaseConnection, $lineID);
         $lineName = mysqli_real_escape_string($databaseConnection, $lineName);
         $sql = "INSERT INTO trainLines (lineName) VALUES ('$lineName')";
         if ($databaseConnection->query($sql) === TRUE) {
@@ -72,7 +71,6 @@ class lineQuery
         ob_start();
 
         $lineID = mysqli_real_escape_string($databaseConnection, $lineID);
-        // $lineName = mysqli_real_escape_string($databaseConnection, $lineName);
         $sql = "DELETE FROM trainLines WHERE lineID = $lineID";
         if ($databaseConnection->query($sql) === TRUE) {
             header('Location: ' . $returnUrl);

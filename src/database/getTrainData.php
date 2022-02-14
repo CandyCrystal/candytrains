@@ -48,6 +48,10 @@ class getTrainData
     }
     function mainQuery($date, $route_id, $trainNumber, $type)
     {
+        $date = mysqli_real_escape_string($this->databaseConnection, $date);
+        $route_id = mysqli_real_escape_string($this->databaseConnection, $route_id);
+        $trainNumber = mysqli_real_escape_string($this->databaseConnection, $trainNumber);
+        $type = mysqli_real_escape_string($this->databaseConnection, $type);
         $arguments = "";
         if ($date != "" && $trainNumber != "") {
             $arguments = " r.train_number = $trainNumber AND r.route_date = '$date'";
@@ -143,6 +147,11 @@ class getTrainData
 
     function preQuery($urlDate, $pageStart, $pageEnd, $trainNum, $type)
     {
+        $urlDate = mysqli_real_escape_string($this->databaseConnection, $urlDate);
+        $pageStart = mysqli_real_escape_string($this->databaseConnection, $pageStart);
+        $pageEnd = mysqli_real_escape_string($this->databaseConnection, $pageEnd);
+        $trainNum = mysqli_real_escape_string($this->databaseConnection, $trainNum);
+        $type = mysqli_real_escape_string($this->databaseConnection, $type);
         $arguments = "";
         if (strval($pageStart) != "" && strval($pageEnd) != "") {
             $arguments = " train_number >= $pageStart AND train_number <= $pageEnd";

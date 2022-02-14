@@ -18,6 +18,7 @@ class getTrainData
     }
     function getTrainRoute($train_id)
     {
+        $train_id = mysqli_real_escape_string($this->databaseConnection, $train_id);
         $query = "SELECT 
         entry_number,
         cancellation,

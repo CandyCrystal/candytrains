@@ -25,6 +25,7 @@ class getOperatorData
     function getOperatorInfo($operatorCode)
     {
         $databaseConnection = $this->databaseConnection;
+        $operatorCode = mysqli_real_escape_string($databaseConnection, $operatorCode);
         $sql = "SELECT * FROM operators WHERE operator_code='$operatorCode'";
         $result = $databaseConnection->query($sql);
         return mysqli_fetch_array($result);

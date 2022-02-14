@@ -6,6 +6,8 @@ if (isset($_POST['submit'])) {
 
 	$options = array("cost" => 4);
 	$hashPassword = password_hash($userPassword, PASSWORD_BCRYPT, $options);
+	$userName = mysqli_real_escape_string($this->databaseConnection, $userName);
+	$hashPassword = mysqli_real_escape_string($this->databaseConnection, $hashPassword);
 
 	$sql = "INSERT INTO users (userName, userPassword) values ('$userName', '$hashPassword')";
 	$result = mysqli_query($conn, $sql);
